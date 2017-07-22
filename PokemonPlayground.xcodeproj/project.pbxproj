@@ -8,23 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		4D8DC6159BAFBF62196A7A40 /* Pods_PokemonPlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E33E9F62BC88F98513895629 /* Pods_PokemonPlayground.framework */; };
-		D4738DDF1F23EE1000F26261 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4738DDE1F23EE1000F26261 /* ViewController.swift */; };
 		D4738DE21F23EE1000F26261 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4738DE01F23EE1000F26261 /* Main.storyboard */; };
 		D4738DE41F23EE1000F26261 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4738DE31F23EE1000F26261 /* Assets.xcassets */; };
 		D4738DE71F23EE1000F26261 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4738DE51F23EE1000F26261 /* LaunchScreen.storyboard */; };
 		D4738DF41F23F40500F26261 /* PPAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4738DF31F23F40500F26261 /* PPAppDelegate.swift */; };
+		D4738DF61F23F62000F26261 /* PPConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4738DF51F23F62000F26261 /* PPConstants.swift */; };
+		D495AA611F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D495AA601F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		73966386613E14BFF3E01430 /* Pods-PokemonPlayground.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonPlayground.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonPlayground/Pods-PokemonPlayground.debug.xcconfig"; sourceTree = "<group>"; };
 		AD49C336DAC96904DC41B1E1 /* Pods-PokemonPlayground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonPlayground.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonPlayground/Pods-PokemonPlayground.release.xcconfig"; sourceTree = "<group>"; };
 		D4738DD91F23EE1000F26261 /* PokemonPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4738DDE1F23EE1000F26261 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D4738DE11F23EE1000F26261 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4738DE31F23EE1000F26261 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4738DE61F23EE1000F26261 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4738DE81F23EE1000F26261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4738DF31F23F40500F26261 /* PPAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPAppDelegate.swift; sourceTree = "<group>"; };
+		D4738DF51F23F62000F26261 /* PPConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPConstants.swift; sourceTree = "<group>"; };
+		D495AA601F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPAnimatedLaunchViewController.swift; sourceTree = "<group>"; };
 		E33E9F62BC88F98513895629 /* Pods_PokemonPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,7 +91,7 @@
 		D4738DEE1F23F3B900F26261 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D4738DDE1F23EE1000F26261 /* ViewController.swift */,
+				D495AA601F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -107,6 +109,7 @@
 				D4738DE31F23EE1000F26261 /* Assets.xcassets */,
 				D4738DE81F23EE1000F26261 /* Info.plist */,
 				D4738DF31F23F40500F26261 /* PPAppDelegate.swift */,
+				D4738DF51F23F62000F26261 /* PPConstants.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -244,7 +247,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4738DDF1F23EE1000F26261 /* ViewController.swift in Sources */,
+				D495AA611F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift in Sources */,
+				D4738DF61F23F62000F26261 /* PPConstants.swift in Sources */,
 				D4738DF41F23F40500F26261 /* PPAppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
