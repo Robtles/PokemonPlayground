@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D8DC6159BAFBF62196A7A40 /* Pods_PokemonPlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E33E9F62BC88F98513895629 /* Pods_PokemonPlayground.framework */; };
 		D4738DDD1F23EE1000F26261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4738DDC1F23EE1000F26261 /* AppDelegate.swift */; };
 		D4738DDF1F23EE1000F26261 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4738DDE1F23EE1000F26261 /* ViewController.swift */; };
 		D4738DE21F23EE1000F26261 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4738DE01F23EE1000F26261 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73966386613E14BFF3E01430 /* Pods-PokemonPlayground.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonPlayground.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonPlayground/Pods-PokemonPlayground.debug.xcconfig"; sourceTree = "<group>"; };
+		AD49C336DAC96904DC41B1E1 /* Pods-PokemonPlayground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonPlayground.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonPlayground/Pods-PokemonPlayground.release.xcconfig"; sourceTree = "<group>"; };
 		D4738DD91F23EE1000F26261 /* PokemonPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4738DDC1F23EE1000F26261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4738DDE1F23EE1000F26261 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		D4738DE31F23EE1000F26261 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4738DE61F23EE1000F26261 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4738DE81F23EE1000F26261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E33E9F62BC88F98513895629 /* Pods_PokemonPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D8DC6159BAFBF62196A7A40 /* Pods_PokemonPlayground.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6278FE2EE44AC60234813508 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				73966386613E14BFF3E01430 /* Pods-PokemonPlayground.debug.xcconfig */,
+				AD49C336DAC96904DC41B1E1 /* Pods-PokemonPlayground.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		81E63B094952A21AB4BB33BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E33E9F62BC88F98513895629 /* Pods_PokemonPlayground.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D4738DD01F23EE1000F26261 = {
 			isa = PBXGroup;
 			children = (
 				D4738DDB1F23EE1000F26261 /* PokemonPlayground */,
 				D4738DDA1F23EE1000F26261 /* Products */,
+				6278FE2EE44AC60234813508 /* Pods */,
+				81E63B094952A21AB4BB33BC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4738DEB1F23EE1000F26261 /* Build configuration list for PBXNativeTarget "PokemonPlayground" */;
 			buildPhases = (
+				80FB5480A59729007D1C92A4 /* [CP] Check Pods Manifest.lock */,
 				D4738DD51F23EE1000F26261 /* Sources */,
 				D4738DD61F23EE1000F26261 /* Frameworks */,
 				D4738DD71F23EE1000F26261 /* Resources */,
+				F44330DD171F8EC07CB88627 /* [CP] Embed Pods Frameworks */,
+				260C1D5F271927FD4A7C5B42 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		260C1D5F271927FD4A7C5B42 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PokemonPlayground/Pods-PokemonPlayground-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80FB5480A59729007D1C92A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F44330DD171F8EC07CB88627 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PokemonPlayground/Pods-PokemonPlayground-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D4738DD51F23EE1000F26261 /* Sources */ = {
@@ -259,6 +334,7 @@
 		};
 		D4738DEC1F23EE1000F26261 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73966386613E14BFF3E01430 /* Pods-PokemonPlayground.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SRD9PR5GCG;
@@ -273,6 +349,7 @@
 		};
 		D4738DED1F23EE1000F26261 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD49C336DAC96904DC41B1E1 /* Pods-PokemonPlayground.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SRD9PR5GCG;
