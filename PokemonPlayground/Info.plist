@@ -36,5 +36,10 @@
 	</array>
 	<key>UIStatusBarHidden</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Ketchum.otf</string>
+		<string>Ketchum Italic.otf</string>
+	</array>
 </dict>
 </plist>
