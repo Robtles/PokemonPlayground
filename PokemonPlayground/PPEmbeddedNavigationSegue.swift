@@ -20,6 +20,7 @@ open class PPEmbeddedNavigationSegue: UIStoryboardSegue {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         self.navigationController?.navigationBar.barTintColor = Constants.kPPApplicationRedColor
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     open override func perform() {

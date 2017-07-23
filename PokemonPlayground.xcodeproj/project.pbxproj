@@ -18,6 +18,8 @@
 		D4E991D21F251A2300B7741A /* Ketchum.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4E991D11F2519FE00B7741A /* Ketchum.otf */; };
 		D4E991D31F251A2600B7741A /* Ketchum Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4E991D01F2519FE00B7741A /* Ketchum Italic.otf */; };
 		D4E991D51F25286500B7741A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4E991D41F25286500B7741A /* Assets.xcassets */; };
+		D4E991D71F254A9700B7741A /* PPPokedexTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E991D61F254A9700B7741A /* PPPokedexTableViewController.swift */; };
+		D4E991DC1F25504400B7741A /* PPUnknownPokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E991DB1F25504400B7741A /* PPUnknownPokemonTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		D4E991D01F2519FE00B7741A /* Ketchum Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ketchum Italic.otf"; sourceTree = "<group>"; };
 		D4E991D11F2519FE00B7741A /* Ketchum.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ketchum.otf; sourceTree = "<group>"; };
 		D4E991D41F25286500B7741A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D4E991D61F254A9700B7741A /* PPPokedexTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokedexTableViewController.swift; sourceTree = "<group>"; };
+		D4E991DB1F25504400B7741A /* PPUnknownPokemonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPUnknownPokemonTableViewCell.swift; sourceTree = "<group>"; };
 		E33E9F62BC88F98513895629 /* Pods_PokemonPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -100,6 +104,7 @@
 		D4738DEE1F23F3B900F26261 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D4E991D81F254F0400B7741A /* Cells */,
 				D4E991CD1F25090F00B7741A /* ViewControllers */,
 				D4E991C91F25021200B7741A /* Accessory Views */,
 			);
@@ -154,6 +159,7 @@
 			children = (
 				D495AA601F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift */,
 				D4E991C71F25001C00B7741A /* PPMainViewController.swift */,
+				D4E991D61F254A9700B7741A /* PPPokedexTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -173,6 +179,14 @@
 				D4E991D11F2519FE00B7741A /* Ketchum.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		D4E991D81F254F0400B7741A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D4E991DB1F25504400B7741A /* PPUnknownPokemonTableViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,10 +315,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4E991DC1F25504400B7741A /* PPUnknownPokemonTableViewCell.swift in Sources */,
 				D495AA611F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift in Sources */,
 				D4E991CC1F25035300B7741A /* PPEmbeddedNavigationSegue.swift in Sources */,
 				D4E991C81F25001C00B7741A /* PPMainViewController.swift in Sources */,
 				D4738DF61F23F62000F26261 /* PPConstants.swift in Sources */,
+				D4E991D71F254A9700B7741A /* PPPokedexTableViewController.swift in Sources */,
 				D4738DF41F23F40500F26261 /* PPAppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

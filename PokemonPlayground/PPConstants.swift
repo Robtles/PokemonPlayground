@@ -16,7 +16,7 @@ struct Constants {
     static let kPlaygroundString = "Playground"
     
     /// My Team String
-    static let kMyTeam = "Mon équipe"
+    static let kMyTeam = "My Team"
     
     /// Fetch Pokémons String
     static let kPokedex = "Pokédex"
@@ -38,6 +38,12 @@ struct Constants {
     
     /// Application button font
     static let kPPApplicationButtonFont = UIFont.boldSystemFont(ofSize: 18.0)
+    
+    /// Application button font
+    static let kPPApplicationPokedexNumberFont = Constants.ketchumFont(ofSize: 16.0)
+    
+    /// Current amount of Pokémon handled
+    static let kPPAmountOfPokemon = 151
 }
 
 extension Constants {

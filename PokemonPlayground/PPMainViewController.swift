@@ -16,6 +16,7 @@ open class PPMainViewController: UIViewController {
     @IBOutlet weak var pokedexButton: UIButton?
     
     // MARK: - Application lifecycle
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         

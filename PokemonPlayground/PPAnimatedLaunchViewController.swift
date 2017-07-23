@@ -19,6 +19,7 @@ open class PPAnimatedLaunchViewController: UIViewController {
     @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
     
     // MARK: - Application lifecycle
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         
