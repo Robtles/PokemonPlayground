@@ -9,6 +9,15 @@
 import EZSwiftExtensions
 
 struct Constants {
+    /// Main View title - Navbar
+    static let kMainViewNavBarTitle = "Pokémon Playground"
+    
+    /// ShowMainViewController Segue
+    static let kShowMainViewControllerSegue = "showMainViewController"
+    
     /// Application main red color
     static let kPPApplicationRedColor = UIColor(hexString: "#DF1A1A")
+    
+    /// Application main blue color
+    static let kPPApplicationBlueColor = UIColor(hexString: "#C7FFFE")
 }

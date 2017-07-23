@@ -22,8 +22,9 @@ open class PPAnimatedLaunchViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        topView.backgroundColor = Constants.kPPApplicationRedColor
-        bottomView.backgroundColor = Constants.kPPApplicationRedColor
+        self.topView.backgroundColor = Constants.kPPApplicationRedColor
+        self.bottomView.backgroundColor = Constants.kPPApplicationRedColor
+        self.view.backgroundColor = Constants.kPPApplicationBlueColor
     }
     
     open override func viewDidAppear(_ animated: Bool) {
@@ -35,32 +36,39 @@ open class PPAnimatedLaunchViewController: UIViewController {
         return true
     }
     
+    private func showMainViewController() {
+        self.performSegue(withIdentifier: Constants.kShowMainViewControllerSegue, sender: nil)
+    }
+    
     // MARK: - Animations
     
     private func animateViews() {
-        pokeBallView.duration = 1.5
-        pokeBallView.delay = 0.1
-        pokeBallView.rotate = .pi
-        pokeBallView.force = 2.5
-        pokeBallView.curve = Spring.AnimationCurve.EaseInCirc.rawValue
-        pokeBallView.animation = Spring.AnimationPreset.ZoomIn.rawValue
-        pokeBallView.damping = 0.7
+        self.pokeBallView.duration = 1.5
+        self.pokeBallView.delay = 0.1
+        self.pokeBallView.rotate = .pi
+        self.pokeBallView.force = 2.5
+        self.pokeBallView.curve = Spring.AnimationCurve.EaseInCirc.rawValue
+        self.pokeBallView.animation = Spring.AnimationPreset.ZoomIn.rawValue
+        self.pokeBallView.damping = 0.7
         
-        pokeBallView.animateNext {
+        self.pokeBallView.animateNext {
             let halfHeight = self.view.frame.size.height / 2
             self.topViewConstraint.constant -= halfHeight
             self.bottomViewConstraint.constant -= halfHeight
             
-            UIView.animate(withDuration: 1.5,
+            UIView.animate(withDuration: 1.0,
                            delay: 0.5,
                            usingSpringWithDamping: 0.25,
                            initialSpringVelocity: 0.8,
-                           options: .curveEaseInOut,
+                           options: [],
                            animations: {
                             self.view.layoutIfNeeded()
                             self.topView.alpha = 0.0
                             self.bottomView.alpha = 0.0
-            }, completion:nil)
+                            self.pokeBallView.alpha = 0.0
+            }, completion:{ result in
+                self.showMainViewController()
+            })
         }
     }
 }

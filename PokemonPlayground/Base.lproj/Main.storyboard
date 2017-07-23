@@ -60,10 +60,29 @@
                         <outlet property="pokeBallView" destination="j8E-cT-Xvt" id="x7n-an-jSc"/>
                         <outlet property="topView" destination="iN0-vv-KJb" id="piX-oz-Eyo"/>
                         <outlet property="topViewConstraint" destination="MPQ-rx-blp" id="yIM-Xw-wfP"/>
+                        <segue destination="wJu-M5-inS" kind="showDetail" identifier="showMainViewController" customClass="PPEmbeddedNavigationSegue" customModule="PokemonPlayground" customModuleProvider="target" animates="NO" action="showViewController:sender:" id="a2Z-FG-hrQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="c7a-gw-gai">
+            <objects>
+                <viewController id="wJu-M5-inS" customClass="PPMainViewController" customModule="PokemonPlayground" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZMX-oi-qgv"/>
+                        <viewControllerLayoutGuide type="bottom" id="OUI-zc-U44"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zTh-RA-rzp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0UX-kV-Hgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1071" y="79"/>
         </scene>
     </scenes>
     <resources>
