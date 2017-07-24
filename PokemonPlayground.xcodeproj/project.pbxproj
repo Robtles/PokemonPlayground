@@ -13,6 +13,7 @@
 		D4738DF41F23F40500F26261 /* PPAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4738DF31F23F40500F26261 /* PPAppDelegate.swift */; };
 		D4738DF61F23F62000F26261 /* PPConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4738DF51F23F62000F26261 /* PPConstants.swift */; };
 		D495AA611F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D495AA601F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift */; };
+		D4E96C711F269D6C00D1029F /* PPPokemonProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E96C701F269D6C00D1029F /* PPPokemonProvider.swift */; };
 		D4E991C81F25001C00B7741A /* PPMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E991C71F25001C00B7741A /* PPMainViewController.swift */; };
 		D4E991CC1F25035300B7741A /* PPEmbeddedNavigationSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E991CB1F25035300B7741A /* PPEmbeddedNavigationSegue.swift */; };
 		D4E991D21F251A2300B7741A /* Ketchum.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4E991D11F2519FE00B7741A /* Ketchum.otf */; };
@@ -32,6 +33,7 @@
 		D4738DF31F23F40500F26261 /* PPAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPAppDelegate.swift; sourceTree = "<group>"; };
 		D4738DF51F23F62000F26261 /* PPConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPConstants.swift; sourceTree = "<group>"; };
 		D495AA601F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPAnimatedLaunchViewController.swift; sourceTree = "<group>"; };
+		D4E96C701F269D6C00D1029F /* PPPokemonProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokemonProvider.swift; sourceTree = "<group>"; };
 		D4E991C71F25001C00B7741A /* PPMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPMainViewController.swift; sourceTree = "<group>"; };
 		D4E991CB1F25035300B7741A /* PPEmbeddedNavigationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPEmbeddedNavigationSegue.swift; sourceTree = "<group>"; };
 		D4E991D01F2519FE00B7741A /* Ketchum Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ketchum Italic.otf"; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		D4738DDB1F23EE1000F26261 /* PokemonPlayground */ = {
 			isa = PBXGroup;
 			children = (
+				D4E96C6B1F2698AA00D1029F /* Providers */,
 				D4E991CE1F2519CE00B7741A /* Resources */,
 				D4738DF21F23F3DA00F26261 /* Storyboards */,
 				D4738DF11F23F3CF00F26261 /* Base */,
@@ -136,6 +139,14 @@
 				D4738DE51F23EE1000F26261 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		D4E96C6B1F2698AA00D1029F /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				D4E96C701F269D6C00D1029F /* PPPokemonProvider.swift */,
+			);
+			name = Providers;
 			sourceTree = "<group>";
 		};
 		D4E991C91F25021200B7741A /* Accessory Views */ = {
@@ -321,6 +332,7 @@
 				D4E991C81F25001C00B7741A /* PPMainViewController.swift in Sources */,
 				D4738DF61F23F62000F26261 /* PPConstants.swift in Sources */,
 				D4E991D71F254A9700B7741A /* PPPokedexTableViewController.swift in Sources */,
+				D4E96C711F269D6C00D1029F /* PPPokemonProvider.swift in Sources */,
 				D4738DF41F23F40500F26261 /* PPAppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
