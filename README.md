@@ -1,6 +1,6 @@
 # PokemonPlayground
 A playground project just to improve my knowledge in Swift and use of many libraries.
-Since I have still a lot to learn with Swift, any advice is more than welcome!
+Since I still have a lot to learn with Swift, any advice is more than welcome!
 
 ## Swift libraries planned to be used:
 
@@ -26,3 +26,5 @@ Since I have still a lot to learn with Swift, any advice is more than welcome!
 #### API key handling
 - **Cocoapods-keys**: great tool, but I couldn't find a Pokemon API requiring to use a private key yet, so...
 
+#### List handling
+- **IGListKit**: replacing occurrences of UITableViews by IGListKits
