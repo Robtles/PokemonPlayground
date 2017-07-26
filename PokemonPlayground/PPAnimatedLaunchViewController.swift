@@ -19,7 +19,6 @@ open class PPAnimatedLaunchViewController: UIViewController {
     @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
     
     // MARK: - Application lifecycle
-    
     open override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,7 +41,6 @@ open class PPAnimatedLaunchViewController: UIViewController {
     }
     
     // MARK: - Animations
-    
     private func animateViews() {
         self.pokeBallView.duration = 1.5
         self.pokeBallView.delay = 0.1

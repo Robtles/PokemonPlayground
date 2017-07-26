@@ -14,6 +14,9 @@
 		D4738DF41F23F40500F26261 /* PPAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4738DF31F23F40500F26261 /* PPAppDelegate.swift */; };
 		D4738DF61F23F62000F26261 /* PPConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4738DF51F23F62000F26261 /* PPConstants.swift */; };
 		D495AA611F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D495AA601F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift */; };
+		D4C910F61F286C5E008C94FA /* PPPokedexTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C910F51F286C5E008C94FA /* PPPokedexTableViewCell.swift */; };
+		D4C910F91F2875E9008C94FA /* PPPokemonTypeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C910F81F2875E9008C94FA /* PPPokemonTypeLabel.swift */; };
+		D4C910FC1F2878E9008C94FA /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C910FB1F2878E9008C94FA /* UIColor+Extension.swift */; };
 		D4E96C711F269D6C00D1029F /* PPPokemonProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E96C701F269D6C00D1029F /* PPPokemonProvider.swift */; };
 		D4E991C81F25001C00B7741A /* PPMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E991C71F25001C00B7741A /* PPMainViewController.swift */; };
 		D4E991CC1F25035300B7741A /* PPEmbeddedNavigationSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E991CB1F25035300B7741A /* PPEmbeddedNavigationSegue.swift */; };
@@ -35,6 +38,9 @@
 		D4738DF31F23F40500F26261 /* PPAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPAppDelegate.swift; sourceTree = "<group>"; };
 		D4738DF51F23F62000F26261 /* PPConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPConstants.swift; sourceTree = "<group>"; };
 		D495AA601F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPAnimatedLaunchViewController.swift; sourceTree = "<group>"; };
+		D4C910F51F286C5E008C94FA /* PPPokedexTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokedexTableViewCell.swift; sourceTree = "<group>"; };
+		D4C910F81F2875E9008C94FA /* PPPokemonTypeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokemonTypeLabel.swift; sourceTree = "<group>"; };
+		D4C910FB1F2878E9008C94FA /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D4E96C701F269D6C00D1029F /* PPPokemonProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokemonProvider.swift; sourceTree = "<group>"; };
 		D4E991C71F25001C00B7741A /* PPMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPMainViewController.swift; sourceTree = "<group>"; };
 		D4E991CB1F25035300B7741A /* PPEmbeddedNavigationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPEmbeddedNavigationSegue.swift; sourceTree = "<group>"; };
@@ -96,6 +102,7 @@
 		D4738DDB1F23EE1000F26261 /* PokemonPlayground */ = {
 			isa = PBXGroup;
 			children = (
+				D4C910FA1F2878DA008C94FA /* Supporting Files */,
 				D4E96C6B1F2698AA00D1029F /* Providers */,
 				D4E991CE1F2519CE00B7741A /* Resources */,
 				D4738DF21F23F3DA00F26261 /* Storyboards */,
@@ -144,6 +151,22 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
+		D4C910F71F2875DA008C94FA /* Other Views */ = {
+			isa = PBXGroup;
+			children = (
+				D4C910F81F2875E9008C94FA /* PPPokemonTypeLabel.swift */,
+			);
+			name = "Other Views";
+			sourceTree = "<group>";
+		};
+		D4C910FA1F2878DA008C94FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4C910FB1F2878E9008C94FA /* UIColor+Extension.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D4E96C6B1F2698AA00D1029F /* Providers */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +178,7 @@
 		D4E991C91F25021200B7741A /* Accessory Views */ = {
 			isa = PBXGroup;
 			children = (
+				D4C910F71F2875DA008C94FA /* Other Views */,
 				D4E991CA1F25023300B7741A /* Navigation Segues */,
 			);
 			name = "Accessory Views";
@@ -199,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				D4E991DB1F25504400B7741A /* PPUnknownPokemonTableViewCell.swift */,
+				D4C910F51F286C5E008C94FA /* PPPokedexTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -329,7 +354,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4C910F61F286C5E008C94FA /* PPPokedexTableViewCell.swift in Sources */,
 				D460914F1F27E7F200DFFE3C /* PPPokemon.swift in Sources */,
+				D4C910F91F2875E9008C94FA /* PPPokemonTypeLabel.swift in Sources */,
+				D4C910FC1F2878E9008C94FA /* UIColor+Extension.swift in Sources */,
 				D4E991DC1F25504400B7741A /* PPUnknownPokemonTableViewCell.swift in Sources */,
 				D495AA611F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift in Sources */,
 				D4E991CC1F25035300B7741A /* PPEmbeddedNavigationSegue.swift in Sources */,

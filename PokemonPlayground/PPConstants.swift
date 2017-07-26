@@ -39,6 +39,15 @@ struct Constants {
     /// Application button font
     static let kPPApplicationButtonFont = UIFont.boldSystemFont(ofSize: 18.0)
     
+    /// Application title bold font
+    static let kPPApplicationTitleBoldFont = UIFont.boldSystemFont(ofSize: 16.0)
+    
+    /// Application standard font
+    static let kPPApplicationStandardFont = UIFont.systemFont(ofSize: 14.0)
+    
+    /// Application lighter font
+    static let kPPApplicationLighterFont = UIFont.systemFont(ofSize: 13.0)
+    
     /// Application button font
     static let kPPApplicationPokedexNumberFont = Constants.ketchumFont(ofSize: 16.0)
     

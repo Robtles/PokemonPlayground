@@ -14,14 +14,7 @@ class PPUnknownPokemonTableViewCell: UITableViewCell {
     @IBOutlet weak var labelView: UIView?
     @IBOutlet weak var pokeBallImageView: UIImageView?
     
-    var number: Int = 0 {
-        didSet {
-            self.numberLabel?.text = "#\(number) "
-        }
-    }
-    
     // - MARK: Application lifecycle
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         

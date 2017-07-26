@@ -11,6 +11,7 @@ import EZSwiftExtensions
 
 // MARK: - Pokemon model
 struct PPPokemon {
+    var index: Int = 0
     var imageURL: String?
     var imageData: Data?
     var name: String?
@@ -36,7 +37,7 @@ extension PPPokemon: Mappable {
 // MARK: - Description
 extension PPPokemon: CustomStringConvertible {
     var description: String {
-        var pokemonDescription: String = "Pokemon \(self.name ?? "") with height:\(self.height ?? 0) and weight:\(self.weight ?? 0) \n"
+        var pokemonDescription: String = "Pokemon #\(self.index) \(self.name ?? "") with height:\(self.height ?? 0) and weight:\(self.weight ?? 0) \n"
         pokemonDescription += "URL image: \(self.imageURL ?? "")\n"
         pokemonDescription += "Type 1: \((self.type1?.rawValue)!)\n"
         
@@ -46,6 +47,17 @@ extension PPPokemon: CustomStringConvertible {
         
         pokemonDescription += "Type 2: \((self.type2?.rawValue)!)"
         return pokemonDescription
+    }
+}
+
+// MARK: - Int extension for height/weight
+extension Int {
+    var toKg: String {
+        return "\(String(format: "%.1f", Float(self) / 10)) kg".replacingOccurrences(of: ".", with: ",")
+    }
+    
+    var toM: String {
+        return "\(String(format: "%.1f", Float(self) / 10)) m".replacingOccurrences(of: ".", with: ",")
     }
 }
 
