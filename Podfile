@@ -11,4 +11,5 @@ target 'PokemonPlayground' do
    pod 'ObjectMapper', '~> 2.2'
    pod 'RealmSwift'
    pod 'EZSwiftExtensions'
+   pod 'SwiftSpinner'
 end

@@ -16,6 +16,7 @@ PODS:
     - Realm (= 2.8.3)
   - Result (3.2.3)
   - Spring (1.0.3)
+  - SwiftSpinner (1.3.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - RAMPaperSwitch (~> 2.0.4)
   - RealmSwift
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
+  - SwiftSpinner
   - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -50,8 +52,9 @@ SPEC CHECKSUMS:
   RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  SwiftSpinner: c249fffed3e74b5f3e6492dcc05d6bc1525a8220
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 39e1ac02a61c757a45ff468c418597ac29ab0fd8
+PODFILE CHECKSUM: e3e14075c61829cac50061d7d77409299165d136
 
 COCOAPODS: 1.2.1

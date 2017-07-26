@@ -9,6 +9,13 @@
 import EZSwiftExtensions
 
 struct Constants {
+    
+    /*******************
+     *
+     * STRINGS
+     *
+     *******************/
+    
     /// Main View title - Navbar
     static let kMainViewNavBarTitle = "Pokémon Playground"
     
@@ -21,8 +28,23 @@ struct Constants {
     /// Fetch Pokémons String
     static let kPokedex = "Pokédex"
     
+    static let kDownloadingDataForPokemon = "Downloading data for Pokemon #"
+    
+    /// Data Loading Error String
+    static let kDataLoadingError = "Could not load data"
+    
+    /// Tap to Cancel String
+    static let kTapToCancel = "Tap to Cancel"
+    
     /// ShowMainViewController Segue
     static let kShowMainViewControllerSegue = "showMainViewController"
+    
+    
+    /*******************
+     *
+     * COLORS
+     *
+     *******************/
     
     /// Application main red color
     static let kPPApplicationRedColor = UIColor(hexString: "#DF1A1A")
@@ -35,6 +57,12 @@ struct Constants {
     
     /// Application blue button
     static let kPPApplicationBlueButtonColor = UIColor(hexString: "#0061BA")
+    
+    /*******************
+     *
+     * FONTS
+     *
+     *******************/
     
     /// Application button font
     static let kPPApplicationButtonFont = UIFont.boldSystemFont(ofSize: 18.0)
@@ -50,6 +78,12 @@ struct Constants {
     
     /// Application button font
     static let kPPApplicationPokedexNumberFont = Constants.ketchumFont(ofSize: 16.0)
+    
+    /*******************
+     *
+     * OTHERS
+     *
+     *******************/
     
     /// Current amount of Pokémon handled
     static let kPPAmountOfPokemon = 151

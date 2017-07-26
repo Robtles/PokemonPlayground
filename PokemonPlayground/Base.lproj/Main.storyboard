@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -222,20 +222,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgS-GD-GCa" customClass="PPPokemonTypeLabel" customModule="PokemonPlayground" customModuleProvider="target">
-                                            <rect key="frame" x="306" y="32.5" width="65" height="22"/>
+                                            <rect key="frame" x="301" y="32.5" width="70" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="YM1-bb-5wA"/>
-                                                <constraint firstAttribute="width" constant="65" id="o2L-3a-rid"/>
+                                                <constraint firstAttribute="width" constant="70" id="o2L-3a-rid"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8K-OE-Xsj" customClass="PPPokemonTypeLabel" customModule="PokemonPlayground" customModuleProvider="target">
-                                            <rect key="frame" x="233" y="32.5" width="65" height="22"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="65" id="9Cy-oT-ye6"/>
-                                            </constraints>
+                                            <rect key="frame" x="223" y="32.5" width="70" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -313,6 +310,7 @@
                                         <constraint firstItem="m7x-ag-bjU" firstAttribute="height" secondItem="eCq-Zn-BOK" secondAttribute="height" id="fE7-pj-KRa"/>
                                         <constraint firstItem="TY8-OV-Pzy" firstAttribute="top" secondItem="Pu4-Jx-5L3" secondAttribute="top" constant="-6" id="j9H-VT-wPr"/>
                                         <constraint firstItem="eCq-Zn-BOK" firstAttribute="top" secondItem="zhJ-x7-qxQ" secondAttribute="top" id="lEb-2f-Yca"/>
+                                        <constraint firstItem="v8K-OE-Xsj" firstAttribute="width" secondItem="hgS-GD-GCa" secondAttribute="width" id="mxO-qv-yk3"/>
                                         <constraint firstItem="m7x-ag-bjU" firstAttribute="bottom" secondItem="zhJ-x7-qxQ" secondAttribute="bottom" constant="2" id="rfJ-i5-KL0"/>
                                         <constraint firstAttribute="trailing" secondItem="TY8-OV-Pzy" secondAttribute="trailing" constant="-6" id="wdj-xm-fde"/>
                                     </constraints>

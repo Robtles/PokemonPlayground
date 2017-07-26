@@ -9,6 +9,7 @@
 import UIKit
 import Moya
 import SwiftyJSON
+import SwiftSpinner
 
 class PPPokedexTableViewController: UITableViewController {
 
@@ -36,6 +37,7 @@ class PPPokedexTableViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "pokedexPokemonCell") as! PPPokedexTableViewCell
         cell.pokemon = pokemon
+        cell.isUserInteractionEnabled = false
         return cell
     }
     
@@ -46,18 +48,40 @@ class PPPokedexTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
+        // If the Pokemon of the tapped cell is unknown, launch download
         if tableView.cellForRow(at: indexPath) is PPUnknownPokemonTableViewCell {
-            self.pokemonProvider.request(.pokemon(index: indexPath.row + 1)) { [unowned self] (result) in
+            var request: Cancellable? = nil
+            var showError: Bool = true
+            
+            // Loading animation with cancellable request
+            SwiftSpinner.show("\(Constants.kDownloadingDataForPokemon)\(indexPath.row + 1)...")
+                        .addTapHandler({
+                            SwiftSpinner.hide({
+                                showError = false
+                                request?.cancel()
+                            })
+            }, subtitle: Constants.kTapToCancel)
+            
+            // Download request
+            request = self.pokemonProvider.request(.pokemon(index: indexPath.row + 1)) { [unowned self] (result) in
                 switch result {
                 case let .success(moyaResponse):
+                    // Success: parse data, map into a Pokemon and reload the cell
                     let data = moyaResponse.data
                     let json = JSON(data: data)
                     var newPokemon = PPPokemon(JSON: json.dictionaryObject!)
                     newPokemon?.index = indexPath.row + 1
                     self.pokemons.append(newPokemon!)
+                    SwiftSpinner.hide()
                     self.tableView.reloadRows(at: [indexPath], with: .none)
-                case let .failure(moyaError):
-                    print("Error on request: \(moyaError)")
+                case .failure(_):
+                    // Failure: show an error if it doesn't come from a user cancel
+                    if showError {
+                        SwiftSpinner.show(duration: 1.0, title: Constants.kDataLoadingError, animated: false)
+                            .addTapHandler({
+                                SwiftSpinner.hide()
+                        })
+                    }
                 }
             }
         }
