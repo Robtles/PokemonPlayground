@@ -36,7 +36,6 @@ class PPPokedexTableViewController: UITableViewController {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "pokedexPokemonCell") as! PPPokedexTableViewCell
         cell.pokemon = PPPokemon(managedObject: managedPokemon)
-        cell.isUserInteractionEnabled = false
         return cell
     }
     
@@ -88,6 +87,11 @@ class PPPokedexTableViewController: UITableViewController {
                     }
                 }
             }
+        } else if tableView.cellForRow(at: indexPath) is PPPokedexTableViewCell {
+            guard let pokemon = RealmHelper.shared.storedPokemons.first(where: { $0.index == indexPath.row + 1 }) else {
+                return
+            }
+            PPAlertViewController.presentIn(self, withPokemon: PPPokemon(managedObject: pokemon))
         }
     }
 }

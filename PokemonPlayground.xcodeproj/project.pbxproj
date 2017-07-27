@@ -30,6 +30,8 @@
 		D4E991D51F25286500B7741A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4E991D41F25286500B7741A /* Assets.xcassets */; };
 		D4E991D71F254A9700B7741A /* PPPokedexTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E991D61F254A9700B7741A /* PPPokedexTableViewController.swift */; };
 		D4E991DC1F25504400B7741A /* PPUnknownPokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E991DB1F25504400B7741A /* PPUnknownPokemonTableViewCell.swift */; };
+		D4EC14B11F2A86390089736F /* PPAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC14B01F2A86390089736F /* PPAlertView.swift */; };
+		D4EC14B31F2A86460089736F /* PPAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EC14B21F2A86460089736F /* PPAlertView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		D4E991D41F25286500B7741A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4E991D61F254A9700B7741A /* PPPokedexTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokedexTableViewController.swift; sourceTree = "<group>"; };
 		D4E991DB1F25504400B7741A /* PPUnknownPokemonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPUnknownPokemonTableViewCell.swift; sourceTree = "<group>"; };
+		D4EC14B01F2A86390089736F /* PPAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPAlertView.swift; sourceTree = "<group>"; };
+		D4EC14B21F2A86460089736F /* PPAlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPAlertView.xib; sourceTree = "<group>"; };
 		E33E9F62BC88F98513895629 /* Pods_PokemonPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokemonPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -163,12 +167,12 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
-		D4C910F71F2875DA008C94FA /* Other Views */ = {
+		D4C910F71F2875DA008C94FA /* Labels */ = {
 			isa = PBXGroup;
 			children = (
 				D4C910F81F2875E9008C94FA /* PPPokemonTypeLabel.swift */,
 			);
-			name = "Other Views";
+			name = Labels;
 			sourceTree = "<group>";
 		};
 		D4C910FA1F2878DA008C94FA /* Supporting Files */ = {
@@ -233,7 +237,8 @@
 		D4E991C91F25021200B7741A /* Accessory Views */ = {
 			isa = PBXGroup;
 			children = (
-				D4C910F71F2875DA008C94FA /* Other Views */,
+				D4EC14AF1F2A86260089736F /* Alert Views */,
+				D4C910F71F2875DA008C94FA /* Labels */,
 				D4E991CA1F25023300B7741A /* Navigation Segues */,
 			);
 			name = "Accessory Views";
@@ -281,6 +286,15 @@
 				D4C910F51F286C5E008C94FA /* PPPokedexTableViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		D4EC14AF1F2A86260089736F /* Alert Views */ = {
+			isa = PBXGroup;
+			children = (
+				D4EC14B01F2A86390089736F /* PPAlertView.swift */,
+				D4EC14B21F2A86460089736F /* PPAlertView.xib */,
+			);
+			name = "Alert Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +365,7 @@
 				D4738DE71F23EE1000F26261 /* LaunchScreen.storyboard in Resources */,
 				D4738DE21F23EE1000F26261 /* Main.storyboard in Resources */,
 				D4E991D51F25286500B7741A /* Assets.xcassets in Resources */,
+				D4EC14B31F2A86460089736F /* PPAlertView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +433,7 @@
 				D4E991DC1F25504400B7741A /* PPUnknownPokemonTableViewCell.swift in Sources */,
 				D495AA611F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift in Sources */,
 				D4E991CC1F25035300B7741A /* PPEmbeddedNavigationSegue.swift in Sources */,
+				D4EC14B11F2A86390089736F /* PPAlertView.swift in Sources */,
 				D4E991C81F25001C00B7741A /* PPMainViewController.swift in Sources */,
 				D4738DF61F23F62000F26261 /* PPConstants.swift in Sources */,
 				D4C911051F29E482008C94FA /* PPManagedPokemon.swift in Sources */,
