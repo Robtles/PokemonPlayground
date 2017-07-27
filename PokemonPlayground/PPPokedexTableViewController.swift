@@ -13,7 +13,6 @@ import SwiftSpinner
 
 class PPPokedexTableViewController: UITableViewController {
 
-    var pokemons: [PPPokemon] = []
     var pokemonProvider = MoyaProvider<PPPokemonService>()
     
     // MARK: - Application lifecycle
@@ -29,14 +28,14 @@ class PPPokedexTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let pokemon = pokemons.first(where: { $0.index == indexPath.row + 1 }) else {
+        guard let managedPokemon = RealmHelper.shared.storedPokemons.first(where: { $0.index == indexPath.row + 1 }) else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "unknownPokemonCell") as! PPUnknownPokemonTableViewCell
             cell.numberLabel?.text = "#\(indexPath.row + 1) "
             return cell
         }
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "pokedexPokemonCell") as! PPPokedexTableViewCell
-        cell.pokemon = pokemon
+        cell.pokemon = PPPokemon(managedObject: managedPokemon)
         cell.isUserInteractionEnabled = false
         return cell
     }
@@ -71,7 +70,12 @@ class PPPokedexTableViewController: UITableViewController {
                     let json = JSON(data: data)
                     var newPokemon = PPPokemon(JSON: json.dictionaryObject!)
                     newPokemon?.index = indexPath.row + 1
-                    self.pokemons.append(newPokemon!)
+                    
+                    guard newPokemon != nil && RealmHelper.shared.addNewPokemon(newPokemon, updating: false) else {
+                        // If no Pokemon or could not add to Realm: fallthrough to failure case
+                        fallthrough
+                    }
+                    
                     SwiftSpinner.hide()
                     self.tableView.reloadRows(at: [indexPath], with: .none)
                 case .failure(_):

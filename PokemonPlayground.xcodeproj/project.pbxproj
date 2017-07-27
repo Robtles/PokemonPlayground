@@ -17,6 +17,11 @@
 		D4C910F61F286C5E008C94FA /* PPPokedexTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C910F51F286C5E008C94FA /* PPPokedexTableViewCell.swift */; };
 		D4C910F91F2875E9008C94FA /* PPPokemonTypeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C910F81F2875E9008C94FA /* PPPokemonTypeLabel.swift */; };
 		D4C910FC1F2878E9008C94FA /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C910FB1F2878E9008C94FA /* UIColor+Extension.swift */; };
+		D4C910FF1F29E141008C94FA /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C910FE1F29E141008C94FA /* RealmHelper.swift */; };
+		D4C911051F29E482008C94FA /* PPManagedPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C911041F29E482008C94FA /* PPManagedPokemon.swift */; };
+		D4C9110C1F2A1CD8008C94FA /* PPPokemon+Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9110B1F2A1CD8008C94FA /* PPPokemon+Persistable.swift */; };
+		D4C9110E1F2A1D08008C94FA /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9110D1F2A1D08008C94FA /* Int+Extension.swift */; };
+		D4C911101F2A1D3F008C94FA /* PPPokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C9110F1F2A1D3F008C94FA /* PPPokemonType.swift */; };
 		D4E96C711F269D6C00D1029F /* PPPokemonProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E96C701F269D6C00D1029F /* PPPokemonProvider.swift */; };
 		D4E991C81F25001C00B7741A /* PPMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E991C71F25001C00B7741A /* PPMainViewController.swift */; };
 		D4E991CC1F25035300B7741A /* PPEmbeddedNavigationSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E991CB1F25035300B7741A /* PPEmbeddedNavigationSegue.swift */; };
@@ -41,6 +46,11 @@
 		D4C910F51F286C5E008C94FA /* PPPokedexTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokedexTableViewCell.swift; sourceTree = "<group>"; };
 		D4C910F81F2875E9008C94FA /* PPPokemonTypeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokemonTypeLabel.swift; sourceTree = "<group>"; };
 		D4C910FB1F2878E9008C94FA /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		D4C910FE1F29E141008C94FA /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
+		D4C911041F29E482008C94FA /* PPManagedPokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPManagedPokemon.swift; sourceTree = "<group>"; };
+		D4C9110B1F2A1CD8008C94FA /* PPPokemon+Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PPPokemon+Persistable.swift"; sourceTree = "<group>"; };
+		D4C9110D1F2A1D08008C94FA /* Int+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		D4C9110F1F2A1D3F008C94FA /* PPPokemonType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokemonType.swift; sourceTree = "<group>"; };
 		D4E96C701F269D6C00D1029F /* PPPokemonProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokemonProvider.swift; sourceTree = "<group>"; };
 		D4E991C71F25001C00B7741A /* PPMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPMainViewController.swift; sourceTree = "<group>"; };
 		D4E991CB1F25035300B7741A /* PPEmbeddedNavigationSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPEmbeddedNavigationSegue.swift; sourceTree = "<group>"; };
@@ -102,6 +112,7 @@
 		D4738DDB1F23EE1000F26261 /* PokemonPlayground */ = {
 			isa = PBXGroup;
 			children = (
+				D4C910FD1F29E128008C94FA /* Objects Store */,
 				D4C910FA1F2878DA008C94FA /* Supporting Files */,
 				D4E96C6B1F2698AA00D1029F /* Providers */,
 				D4E991CE1F2519CE00B7741A /* Resources */,
@@ -126,7 +137,8 @@
 		D4738DEF1F23F3BD00F26261 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D460914E1F27E7F200DFFE3C /* PPPokemon.swift */,
+				D4C911081F2A1C82008C94FA /* Persistable */,
+				D4C911071F2A1C7C008C94FA /* Schema */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -163,8 +175,51 @@
 			isa = PBXGroup;
 			children = (
 				D4C910FB1F2878E9008C94FA /* UIColor+Extension.swift */,
+				D4C9110D1F2A1D08008C94FA /* Int+Extension.swift */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4C910FD1F29E128008C94FA /* Objects Store */ = {
+			isa = PBXGroup;
+			children = (
+				D4C911061F29E5F4008C94FA /* Schema */,
+				D4C911011F29E36A008C94FA /* Core */,
+			);
+			name = "Objects Store";
+			sourceTree = "<group>";
+		};
+		D4C911011F29E36A008C94FA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D4C910FE1F29E141008C94FA /* RealmHelper.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		D4C911061F29E5F4008C94FA /* Schema */ = {
+			isa = PBXGroup;
+			children = (
+				D4C911041F29E482008C94FA /* PPManagedPokemon.swift */,
+			);
+			name = Schema;
+			sourceTree = "<group>";
+		};
+		D4C911071F2A1C7C008C94FA /* Schema */ = {
+			isa = PBXGroup;
+			children = (
+				D460914E1F27E7F200DFFE3C /* PPPokemon.swift */,
+				D4C9110F1F2A1D3F008C94FA /* PPPokemonType.swift */,
+			);
+			name = Schema;
+			sourceTree = "<group>";
+		};
+		D4C911081F2A1C82008C94FA /* Persistable */ = {
+			isa = PBXGroup;
+			children = (
+				D4C9110B1F2A1CD8008C94FA /* PPPokemon+Persistable.swift */,
+			);
+			name = Persistable;
 			sourceTree = "<group>";
 		};
 		D4E96C6B1F2698AA00D1029F /* Providers */ = {
@@ -355,7 +410,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4C910F61F286C5E008C94FA /* PPPokedexTableViewCell.swift in Sources */,
+				D4C9110E1F2A1D08008C94FA /* Int+Extension.swift in Sources */,
 				D460914F1F27E7F200DFFE3C /* PPPokemon.swift in Sources */,
+				D4C911101F2A1D3F008C94FA /* PPPokemonType.swift in Sources */,
 				D4C910F91F2875E9008C94FA /* PPPokemonTypeLabel.swift in Sources */,
 				D4C910FC1F2878E9008C94FA /* UIColor+Extension.swift in Sources */,
 				D4E991DC1F25504400B7741A /* PPUnknownPokemonTableViewCell.swift in Sources */,
@@ -363,9 +420,12 @@
 				D4E991CC1F25035300B7741A /* PPEmbeddedNavigationSegue.swift in Sources */,
 				D4E991C81F25001C00B7741A /* PPMainViewController.swift in Sources */,
 				D4738DF61F23F62000F26261 /* PPConstants.swift in Sources */,
+				D4C911051F29E482008C94FA /* PPManagedPokemon.swift in Sources */,
 				D4E991D71F254A9700B7741A /* PPPokedexTableViewController.swift in Sources */,
 				D4E96C711F269D6C00D1029F /* PPPokemonProvider.swift in Sources */,
+				D4C9110C1F2A1CD8008C94FA /* PPPokemon+Persistable.swift in Sources */,
 				D4738DF41F23F40500F26261 /* PPAppDelegate.swift in Sources */,
+				D4C910FF1F29E141008C94FA /* RealmHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

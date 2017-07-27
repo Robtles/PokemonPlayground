@@ -27,11 +27,17 @@ class PPPokedexTableViewCell: UITableViewCell {
             self.weightLabel?.text = (pokemon?.weight?.toKg)!
             self.heightLabel?.text = (pokemon?.height?.toM)!
             
-            if pokemon?.imageData != nil {
+            if (pokemon?.hasImageData)! {
                 self.pokemonImageView?.image = UIImage(data: (pokemon?.imageData)!)
             } else {
-                self.pokemonImageView?.kf.setImage(with: URL(string: (pokemon?.imageURL)!))
+                self.pokemonImageView?.kf.setImage(with: URL(string: (pokemon?.imageURL)!),
+                                                   completionHandler: { [unowned self] (image, _, _, _) in
+                                                    if image != nil {
+                                                        self.pokemon?.imageData = UIImagePNGRepresentation(image!)
+                                                    }
+                })
             }
+
             self.pokemonImageView?.setCornerRadius(radius: (self.pokemonImageView?.frame.size.width)! / 2)
             
             self.firstTypeLabel?.type = (pokemon?.type1)!
