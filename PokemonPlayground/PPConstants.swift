@@ -25,9 +25,13 @@ struct Constants {
     /// My Team String
     static let kMyTeam = "My Team"
     
+    /// Manage my Team String
+    static let kManageMyTeam = "Manage my Team"
+    
     /// Fetch Pokémons String
     static let kPokedex = "Pokédex"
     
+    /// Downloading data for Pokemon String
     static let kDownloadingDataForPokemon = "Downloading data for Pokemon #"
     
     /// Data Loading Error String

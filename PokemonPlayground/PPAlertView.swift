@@ -27,6 +27,7 @@ open class PPAlertViewController: UIViewController, UIViewControllerTransitionin
     
     var isDismissingByBottom: Bool = false
     
+    // MARK: - Initializers
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: "PPAlertView", bundle: nil)
         self.transitioningDelegate = self
@@ -36,6 +37,7 @@ open class PPAlertViewController: UIViewController, UIViewControllerTransitionin
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Application lifecycle
     open override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -93,6 +95,7 @@ open class PPAlertViewController: UIViewController, UIViewControllerTransitionin
         }
     }
     
+    // MARK: - UIViewControllerTransitioningDelegate
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return PPDismissAlertViewAnimationController()
     }
@@ -101,6 +104,7 @@ open class PPAlertViewController: UIViewController, UIViewControllerTransitionin
         return PPPresentAlertViewAnimationController()
     }
     
+    // MARK: - IBActions
     @IBAction func alertMoving(_ sender: Any) {
         let gesture = sender as! UIPanGestureRecognizer
         
@@ -131,7 +135,8 @@ open class PPAlertViewController: UIViewController, UIViewControllerTransitionin
     }
 }
 
-class PPPresentAlertViewAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
+// MARK: - UIViewControllerAnimatedTransitioning
+private final class PPPresentAlertViewAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.3
     }
@@ -162,7 +167,7 @@ class PPPresentAlertViewAnimationController: NSObject, UIViewControllerAnimatedT
     }
 }
 
-class PPDismissAlertViewAnimationController: NSObject,  UIViewControllerAnimatedTransitioning {
+private final class PPDismissAlertViewAnimationController: NSObject,  UIViewControllerAnimatedTransitioning {
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.3
     }

@@ -38,4 +38,11 @@ open class PPMainViewController: UIViewController {
         self.pokedexButton?.backgroundColor = Constants.kPPApplicationBlueButtonColor
     }
 
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
+    }
 }
