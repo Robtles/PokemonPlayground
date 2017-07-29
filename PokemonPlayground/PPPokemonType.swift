@@ -24,6 +24,9 @@ enum PPPokemonType: String {
     case psychic = "psychic"
     case ice = "ice"
     case dragon = "dragon"
+    case fairy = "fairy"
+    case steel = "steel"
+    case dark = "dark"
 }
 
 extension PPPokemonType {
@@ -59,6 +62,12 @@ extension PPPokemonType {
             return UIColor(hexString: "#9CF8FF")!
         case .dragon:
             return UIColor(hexString: "#C4E5E7")!
+        case .fairy:
+            return UIColor(hexString: "#F6AAB6")!
+        case .steel:
+            return UIColor(hexString: "#D4D4D4")!
+        case .dark:
+            return UIColor(hexString: "#6F2700")!
         }
     }
     
