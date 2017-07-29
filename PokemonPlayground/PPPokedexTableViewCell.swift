@@ -30,6 +30,7 @@ class PPPokedexTableViewCell: UITableViewCell {
             if (pokemon?.hasImageData)! {
                 self.pokemonImageView?.image = UIImage(data: (pokemon?.imageData)!)
             } else {
+                self.pokemonImageView?.kf.indicatorType = .activity
                 self.pokemonImageView?.kf.setImage(with: URL(string: (pokemon?.imageURL)!),
                                                    completionHandler: { [unowned self] (image, _, _, _) in
                                                     if image != nil {

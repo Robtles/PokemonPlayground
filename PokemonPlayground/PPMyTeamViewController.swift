@@ -55,6 +55,7 @@ open class PPMyTeamViewController: UIViewController {
                 if pokemon.hasImageData {
                     self.pokemonImageViews?[i].image = UIImage(data: (pokemon.imageData)!)
                 } else {
+                    self.pokemonImageViews?[i].kf.indicatorType = .activity
                     self.pokemonImageViews?[i].kf.setImage(with: URL(string: (pokemon.imageURL)!),
                                                        completionHandler: { (image, _, _, _) in
                                                         if image != nil {
