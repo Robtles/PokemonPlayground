@@ -35,7 +35,16 @@ extension PPPokemon: Persistable {
         managedPokemon.name = self.name!
         managedPokemon.weight = self.weight!
         managedPokemon.height = self.height!
+
+        // In some cases (like Jigglypuff #39), the Pokemon has only one type
+        // but it's stored into type2 instead of type1
+        guard ((self.type1?.rawValue) != nil) else {
+            managedPokemon.type1 = (self.type2?.rawValue)!
+            return managedPokemon
+        }
+        
         managedPokemon.type1 = (self.type1?.rawValue)!
+
         guard self.type2 != nil else {
             managedPokemon.type2 = ""
             return managedPokemon
