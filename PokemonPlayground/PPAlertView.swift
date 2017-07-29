@@ -62,9 +62,9 @@ open class PPAlertViewController: UIViewController, UIViewControllerTransitionin
         } else {
             self.pokemonImageView?.kf.indicatorType = .activity
             self.pokemonImageView?.kf.setImage(with: URL(string: (pokemon.imageURL)!),
-                                               completionHandler: { [unowned self] (image, _, _, _) in
+                                               completionHandler: { [weak self] (image, _, _, _) in
                                                 if image != nil {
-                                                    self.pokemon?.imageData = UIImagePNGRepresentation(image!)
+                                                    self?.pokemon?.imageData = UIImagePNGRepresentation(image!)
                                                 }
             })
         }
