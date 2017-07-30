@@ -12,6 +12,7 @@
 		D460914F1F27E7F200DFFE3C /* PPPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460914E1F27E7F200DFFE3C /* PPPokemon.swift */; };
 		D47338271F2E119D005D4AEE /* PPPokemonChooserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47338261F2E119D005D4AEE /* PPPokemonChooserTableViewCell.swift */; };
 		D473382B1F2E2620005D4AEE /* PPPokemonTeamChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D473382A1F2E2620005D4AEE /* PPPokemonTeamChooserViewController.swift */; };
+		D47338371F2E8971005D4AEE /* PPOverlayedModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47338361F2E8971005D4AEE /* PPOverlayedModalViewController.swift */; };
 		D4738DE21F23EE1000F26261 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4738DE01F23EE1000F26261 /* Main.storyboard */; };
 		D4738DE71F23EE1000F26261 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4738DE51F23EE1000F26261 /* LaunchScreen.storyboard */; };
 		D4738DF41F23F40500F26261 /* PPAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4738DF31F23F40500F26261 /* PPAppDelegate.swift */; };
@@ -44,6 +45,7 @@
 		D460914E1F27E7F200DFFE3C /* PPPokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokemon.swift; sourceTree = "<group>"; };
 		D47338261F2E119D005D4AEE /* PPPokemonChooserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokemonChooserTableViewCell.swift; sourceTree = "<group>"; };
 		D473382A1F2E2620005D4AEE /* PPPokemonTeamChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokemonTeamChooserViewController.swift; sourceTree = "<group>"; };
+		D47338361F2E8971005D4AEE /* PPOverlayedModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPOverlayedModalViewController.swift; sourceTree = "<group>"; };
 		D4738DD91F23EE1000F26261 /* PokemonPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4738DE11F23EE1000F26261 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4738DE61F23EE1000F26261 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 				E33E9F62BC88F98513895629 /* Pods_PokemonPlayground.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D47338351F2E894B005D4AEE /* Overlay Modal View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D47338361F2E8971005D4AEE /* PPOverlayedModalViewController.swift */,
+			);
+			name = "Overlay Modal View Controller";
 			sourceTree = "<group>";
 		};
 		D4738DD01F23EE1000F26261 = {
@@ -261,6 +271,7 @@
 		D4E991CD1F25090F00B7741A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D47338351F2E894B005D4AEE /* Overlay Modal View Controller */,
 				D473382A1F2E2620005D4AEE /* PPPokemonTeamChooserViewController.swift */,
 				D495AA601F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift */,
 				D4E991C71F25001C00B7741A /* PPMainViewController.swift */,
@@ -447,6 +458,7 @@
 				D4EC14B11F2A86390089736F /* PPAlertView.swift in Sources */,
 				D4E991C81F25001C00B7741A /* PPMainViewController.swift in Sources */,
 				D4738DF61F23F62000F26261 /* PPConstants.swift in Sources */,
+				D47338371F2E8971005D4AEE /* PPOverlayedModalViewController.swift in Sources */,
 				D4C911051F29E482008C94FA /* PPManagedPokemon.swift in Sources */,
 				D4BDE62E1F2DD8CC00134CFB /* PPRealmHelper.swift in Sources */,
 				D4E991D71F254A9700B7741A /* PPPokedexTableViewController.swift in Sources */,

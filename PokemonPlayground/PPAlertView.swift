@@ -8,10 +8,8 @@
 
 import UIKit
 
-class PPAlertViewController: UIViewController, UIViewControllerTransitioningDelegate {
+class PPAlertViewController: PPOverlayedModalViewController {
     
-    @IBOutlet weak var overlayView: UIView?
-    @IBOutlet weak var alertView: UIView?
     @IBOutlet weak var alertCenterYConstraint: NSLayoutConstraint?
     
     @IBOutlet weak var pokemonIndexLabel: UILabel?
@@ -24,8 +22,6 @@ class PPAlertViewController: UIViewController, UIViewControllerTransitioningDele
     @IBOutlet weak var secondTypeConstraint: NSLayoutConstraint?
     
     var pokemon: PPPokemon?
-    
-    var isDismissingByBottom: Bool = false
     
     // MARK: - Initializers
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -97,16 +93,7 @@ class PPAlertViewController: UIViewController, UIViewControllerTransitioningDele
             }
         }
     }
-    
-    // MARK: - UIViewControllerTransitioningDelegate
-    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return PPDismissAlertViewAnimationController()
-    }
-    
-    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return PPPresentAlertViewAnimationController()
-    }
-    
+
     // MARK: - IBActions
     @IBAction func alertMoving(_ sender: Any) {
         let gesture = sender as! UIPanGestureRecognizer
@@ -135,61 +122,5 @@ class PPAlertViewController: UIViewController, UIViewControllerTransitioningDele
     
     @IBAction func tapToDismiss(_ sender: Any) {
         self.dismiss(animated: true, completion:nil)
-    }
-}
-
-// MARK: - UIViewControllerAnimatedTransitioning
-private final class PPPresentAlertViewAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
-    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.3
-    }
-    
-    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        let toViewController: PPAlertViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! PPAlertViewController
-        let duration = self.transitionDuration(using: transitionContext)
-        
-        let containerView = transitionContext.containerView
-        toViewController.view.frame = containerView.frame
-        containerView.addSubview(toViewController.view)
-        
-        toViewController.overlayView?.alpha = 0.0
-        UIView.animate(withDuration: duration, animations: {
-            toViewController.overlayView?.alpha = 0.6
-        })
-        
-        let finishFrame = toViewController.alertView?.frame
-        var startingFrame = finishFrame
-        startingFrame?.origin.y = -((finishFrame?.height)!)
-        toViewController.alertView?.frame = startingFrame!
-        
-        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: .layoutSubviews, animations: {
-            toViewController.alertView?.frame = finishFrame!
-        }, completion: { result in
-            transitionContext.completeTransition(result)
-        })
-    }
-}
-
-private final class PPDismissAlertViewAnimationController: NSObject,  UIViewControllerAnimatedTransitioning {
-    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.3
-    }
-    
-    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        let fromViewController: PPAlertViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! PPAlertViewController
-        let duration = self.transitionDuration(using: transitionContext)
-        
-        UIView.animate(withDuration: duration, animations: {
-            fromViewController.overlayView?.alpha = 0.0
-        })
-        
-        var finishFrame = fromViewController.alertView?.frame
-        finishFrame?.origin.y = fromViewController.isDismissingByBottom ? fromViewController.view.frame.size.height : -(finishFrame?.height)!
-        
-        UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .layoutSubviews, animations: {
-            fromViewController.alertView?.frame = finishFrame!
-        }, completion: { result in
-            transitionContext.completeTransition(true)
-        })
     }
 }

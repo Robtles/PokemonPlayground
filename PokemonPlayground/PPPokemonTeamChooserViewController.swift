@@ -8,10 +8,8 @@
 
 import UIKit
 
-class PPPokemonTeamChooserViewController: UIViewController {
+class PPPokemonTeamChooserViewController: PPOverlayedModalViewController {
     
-    @IBOutlet weak var overlayView: UIView?
-    @IBOutlet weak var alertView: UIView?
     @IBOutlet weak var chooseAPokemonLabel: UILabel?
     @IBOutlet weak var availablePokemonsTableView: UITableView?
     
@@ -87,6 +85,8 @@ class PPPokemonTeamChooserViewController: UIViewController {
                     self.view.layoutIfNeeded()
                 })
             } else {
+                self.isDismissingByBottom = velocity > 0
+                
                 self.dismiss(animated: true, completion:nil)
             }
         case .began, .changed:
@@ -138,72 +138,4 @@ extension PPPokemonTeamChooserViewController: UITableViewDelegate {
 // MARK: - PokemonChooserDelegate
 protocol PPPokemonTeamChooserDelegate {
     func didChoosePokemon(withIndex index: Int, teamIndex: Int)
-}
-
-// MARK: - UIViewControllerTransitioningDelegate
-extension PPPokemonTeamChooserViewController: UIViewControllerTransitioningDelegate {
-    
-    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return PPPresentTeamChooserViewAnimationController()
-    }
-    
-    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return PPDismissTeamChooserViewAnimationController()
-    }
-}
-
-// MARK: - UIViewControllerAnimatedTransitioning
-private final class PPPresentTeamChooserViewAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
-    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.3
-    }
-    
-    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        let toViewController: PPPokemonTeamChooserViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as! PPPokemonTeamChooserViewController
-        let duration = self.transitionDuration(using: transitionContext)
-        
-        let containerView = transitionContext.containerView
-        toViewController.view.frame = containerView.frame
-        containerView.addSubview(toViewController.view)
-        
-        toViewController.overlayView?.alpha = 0.0
-        UIView.animate(withDuration: duration, animations: {
-            toViewController.overlayView?.alpha = 0.6
-        })
-        
-        let finishFrame = toViewController.alertView?.frame
-        var startingFrame = finishFrame
-        startingFrame?.origin.y = -((finishFrame?.height)!)
-        toViewController.alertView?.frame = startingFrame!
-        
-        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1.0, options: .layoutSubviews, animations: {
-            toViewController.alertView?.frame = finishFrame!
-        }, completion: { result in
-            transitionContext.completeTransition(result)
-        })
-    }
-}
-
-private final class PPDismissTeamChooserViewAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
-    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.3
-    }
-    
-    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        let fromViewController: PPPokemonTeamChooserViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as! PPPokemonTeamChooserViewController
-        let duration = self.transitionDuration(using: transitionContext)
-        
-        UIView.animate(withDuration: duration, animations: {
-            fromViewController.overlayView?.alpha = 0.0
-        })
-        
-        var finishFrame = fromViewController.alertView?.frame
-        finishFrame?.origin.y = fromViewController.view.frame.size.height + 15
-        
-        UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .layoutSubviews, animations: {
-            fromViewController.alertView?.frame = finishFrame!
-        }, completion: { result in
-            transitionContext.completeTransition(true)
-        })
-    }
 }
