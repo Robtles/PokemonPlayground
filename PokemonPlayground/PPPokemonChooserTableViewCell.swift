@@ -7,13 +7,11 @@
 //
 
 import UIKit
-import RAMPaperSwitch
 
 class PPPokemonChooserTableViewCell: UITableViewCell {
     
     @IBOutlet weak var labelView: UILabel?
     @IBOutlet weak var pokeBallImageView: UIImageView?
-    @IBOutlet weak var cellSwitch: UISwitch?
     
     var pokemon: PPManagedPokemon? {
         didSet {
@@ -42,8 +40,6 @@ class PPPokemonChooserTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         self.labelView?.font = Constants.kPPApplicationTitleFont
-        self.cellSwitch?.isOn = false
-        
         self.selectionStyle = .none
     }
 }

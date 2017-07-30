@@ -305,11 +305,8 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="483-CI-0vK">
-                                                            <rect key="frame" x="286" y="12.5" width="51" height="31"/>
-                                                        </switch>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLA-GW-4hc">
-                                                            <rect key="frame" x="67" y="28" width="217" height="0.0"/>
+                                                            <rect key="frame" x="67" y="28" width="268" height="0.0"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -317,17 +314,14 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="bsK-4R-zPY" firstAttribute="top" secondItem="Jby-Mi-UeS" secondAttribute="top" constant="4" id="0Mz-xX-thX"/>
-                                                        <constraint firstItem="483-CI-0vK" firstAttribute="leading" secondItem="aLA-GW-4hc" secondAttribute="trailing" constant="2" id="2Vp-gn-phl"/>
                                                         <constraint firstItem="bsK-4R-zPY" firstAttribute="leading" secondItem="Jby-Mi-UeS" secondAttribute="leading" constant="8" id="8gw-eA-Hqx"/>
                                                         <constraint firstItem="aLA-GW-4hc" firstAttribute="centerY" secondItem="Jby-Mi-UeS" secondAttribute="centerY" id="8uz-dI-K0R"/>
+                                                        <constraint firstAttribute="trailing" secondItem="aLA-GW-4hc" secondAttribute="trailing" constant="8" id="O8R-uu-klK"/>
                                                         <constraint firstAttribute="bottom" secondItem="bsK-4R-zPY" secondAttribute="bottom" constant="4" id="OHi-EH-c1F"/>
                                                         <constraint firstItem="aLA-GW-4hc" firstAttribute="leading" secondItem="bsK-4R-zPY" secondAttribute="trailing" constant="12" id="kiw-fg-7MU"/>
-                                                        <constraint firstItem="483-CI-0vK" firstAttribute="centerY" secondItem="Jby-Mi-UeS" secondAttribute="centerY" id="pAh-uO-gdF"/>
-                                                        <constraint firstAttribute="trailing" secondItem="483-CI-0vK" secondAttribute="trailing" constant="8" id="tBG-R9-a3M"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="cellSwitch" destination="483-CI-0vK" id="Bt6-Lu-y9d"/>
                                                     <outlet property="labelView" destination="aLA-GW-4hc" id="OU6-Am-c6j"/>
                                                     <outlet property="pokeBallImageView" destination="bsK-4R-zPY" id="hAX-VN-qQK"/>
                                                 </connections>

@@ -8,7 +8,6 @@ PODS:
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
   - ObjectMapper (2.2.8)
-  - RAMPaperSwitch (2.0.5)
   - Realm (2.8.3):
     - Realm/Headers (= 2.8.3)
   - Realm/Headers (2.8.3)
@@ -26,7 +25,6 @@ DEPENDENCIES:
   - Kingfisher (~> 3.0)
   - Moya
   - ObjectMapper (~> 2.2)
-  - RAMPaperSwitch (~> 2.0.4)
   - RealmSwift
   - SCLAlertView
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
@@ -49,7 +47,6 @@ SPEC CHECKSUMS:
   Kingfisher: a0ac82dc5bcf0388dd74b294cf2cc13730c63436
   Moya: c37eec09a098ba9991b5a963b291fc5704bdb9ef
   ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
-  RAMPaperSwitch: 8e547186be122e858aa060596708f0dcbfe7593f
   Realm: 3601ef091c8c499a31101d8563b991e75546cdce
   RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
@@ -58,6 +55,6 @@ SPEC CHECKSUMS:
   SwiftSpinner: c249fffed3e74b5f3e6492dcc05d6bc1525a8220
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 8a46e9ed7366b8e693c3cba64f958565be27f0df
+PODFILE CHECKSUM: 35cf532225ab5614680105217d206363552b15d9
 
 COCOAPODS: 1.2.1
