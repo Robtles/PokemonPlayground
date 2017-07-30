@@ -184,7 +184,6 @@ private final class PPDismissAlertViewAnimationController: NSObject,  UIViewCont
         })
         
         var finishFrame = fromViewController.alertView?.frame
-        finishFrame?.origin.y = -(finishFrame?.height)!
         finishFrame?.origin.y = fromViewController.isDismissingByBottom ? fromViewController.view.frame.size.height : -(finishFrame?.height)!
         
         UIView.animate(withDuration: duration, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .layoutSubviews, animations: {

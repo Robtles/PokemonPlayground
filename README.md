@@ -7,8 +7,8 @@ Since I still have a lot to learn with Swift, any advice is more than welcome!
 #### UI and image handling
 - **Spring:** to simplify animations
 - **SwiftSpinner:** a great, simple custom spinner
-- **RAMPaperSwitch:** nice tool to paint a whole cell containing a switch
 - **Kingfisher:** tool to handle image cache
+- **SCLAlertView:** to simplify alert view use
 
 #### Networking
 - **Alamofire** and **Moya**: HTTP networking and API abstraction layer simplified

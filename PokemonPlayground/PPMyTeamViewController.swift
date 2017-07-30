@@ -51,18 +51,7 @@ class PPMyTeamViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        switch UIDevice.current.orientation {
-        case .landscapeLeft, .landscapeRight:
-            let size = CGSize(width: self.view.size.width,
-                              height: self.view.size.height - self.navigationBarHeight)
-            self.setupView(.landscape, withSize: size)
-            break
-        default:
-            let size = CGSize(width: self.view.size.width,
-                              height: self.view.size.height - UIApplication.shared.statusBarFrame.height - self.navigationBarHeight)
-            self.setupView(.portrait, withSize: size)
-            break
-        }
+        self.layoutView()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -74,18 +63,20 @@ class PPMyTeamViewController: UIViewController {
         self.pokemonLabels = []
         self.view.removeSubviews()
         
+        var sizeToUse: CGSize?
+        
         switch UIDevice.current.orientation {
         case .landscapeLeft, .landscapeRight:
-            let sizeToUse = CGSize(width: size.width,
+            sizeToUse = CGSize(width: size.width,
                                    height: size.height + UIApplication.shared.statusBarFrame.height)
-            self.setupView(.landscape, withSize: sizeToUse)
             break
         default:
-            let sizeToUse = CGSize(width: size.width,
+            sizeToUse = CGSize(width: size.width,
                                    height: size.height - self.navigationBarHeight)
-            self.setupView(.portrait, withSize: sizeToUse)
             break
         }
+        
+        self.layoutView(with: sizeToUse!)
     }
     
     // MARK: - Setup
@@ -95,6 +86,24 @@ class PPMyTeamViewController: UIViewController {
             self.setupConstraints(forView: i,
                                   orientation: orientation,
                                   andSize: size)
+        }
+    }
+    
+    fileprivate func layoutView(with specificSize: CGSize? = nil) {
+        
+        switch UIDevice.current.orientation {
+        case .landscapeLeft, .landscapeRight:
+            let size: CGSize! = (specificSize != nil) ?
+                specificSize : CGSize(width: self.view.size.width,
+                                      height: self.view.size.height - self.navigationBarHeight)
+            self.setupView(.landscape, withSize: size)
+            break
+        default:
+            let size: CGSize! = (specificSize != nil) ?
+                specificSize : CGSize(width: self.view.size.width,
+                                      height: self.view.size.height - UIApplication.shared.statusBarFrame.height - self.navigationBarHeight)
+            self.setupView(.portrait, withSize: size)
+            break
         }
     }
     
@@ -196,18 +205,7 @@ class PPMyTeamViewController: UIViewController {
                 alertView.hideView()
                 self.pokemonLabels[index].isHidden = true
                 
-                switch UIDevice.current.orientation {
-                case .landscapeLeft, .landscapeRight:
-                    let size = CGSize(width: self.view.size.width,
-                                      height: self.view.size.height - self.navigationBarHeight)
-                    self.setupView(.landscape, withSize: size)
-                    break
-                default:
-                    let size = CGSize(width: self.view.size.width,
-                                      height: self.view.size.height - UIApplication.shared.statusBarFrame.height - self.navigationBarHeight)
-                    self.setupView(.portrait, withSize: size)
-                    break
-                }
+                self.layoutView()
             }
         }
         
@@ -218,23 +216,11 @@ class PPMyTeamViewController: UIViewController {
                 alertView.hideView()
                 self.pokemonLabels[index].isHidden = true
                 
-                switch UIDevice.current.orientation {
-                case .landscapeLeft, .landscapeRight:
-                    let size = CGSize(width: self.view.size.width,
-                                      height: self.view.size.height - self.navigationBarHeight)
-                    self.setupView(.landscape, withSize: size)
-                    break
-                default:
-                    let size = CGSize(width: self.view.size.width,
-                                      height: self.view.size.height - UIApplication.shared.statusBarFrame.height - self.navigationBarHeight)
-                    self.setupView(.portrait, withSize: size)
-                    break
-                }
+                self.layoutView()
                 
                 PPPokemonTeamChooserViewController.presentIn(self, index: index, delegate: self)
             }
         }
-        
         
         alertView.showWarning("Warning",
             subTitle: "What do you want to do with \(pokemonAtIndex.name!.capitalized)?",
@@ -247,20 +233,9 @@ extension PPMyTeamViewController: PPPokemonTeamChooserDelegate {
     
     func didChoosePokemon(withIndex index: Int, teamIndex: Int) {
         
-        PPRealmHelper.shared.addPokemonInTeam(pokemonIndex: index, teamIndex: teamIndex) {
-            
-            switch UIDevice.current.orientation {
-            case .landscapeLeft, .landscapeRight:
-                let size = CGSize(width: self.view.size.width,
-                                  height: self.view.size.height - self.navigationBarHeight)
-                self.setupView(.landscape, withSize: size)
-                break
-            default:
-                let size = CGSize(width: self.view.size.width,
-                                  height: self.view.size.height - UIApplication.shared.statusBarFrame.height - self.navigationBarHeight)
-                self.setupView(.portrait, withSize: size)
-                break
-            }
+        PPRealmHelper.shared.addPokemonInTeam(pokemonIndex: index,
+                                              teamIndex: teamIndex) {
+            self.layoutView()
         }
     }
 }
