@@ -40,6 +40,7 @@ class PPMyTeamViewController: UIViewController {
     
     var containingViews: [UIView] = []
     var pokemonImageViews: [UIImageView] = []
+    var pokemonLabels: [UILabel] = []
     
     // MARK: - Application lifecycle
     override func viewDidLoad() {
@@ -70,6 +71,7 @@ class PPMyTeamViewController: UIViewController {
         // Resetting the view
         self.containingViews = []
         self.pokemonImageViews = []
+        self.pokemonLabels = []
         self.view.removeSubviews()
         
         switch UIDevice.current.orientation {
@@ -108,18 +110,27 @@ class PPMyTeamViewController: UIViewController {
                                                                    action: #selector(self.showPokemonChooserView(_:))))
         
         let imageWidth = containingView.frame.size.height * 0.6
+        let labelWidth = containingView.frame.size.height * 0.8
         
         let imageView = UIImageView(x: (containingView.frame.size.width - imageWidth) / 2,
                                     y: (containingView.frame.size.height - imageWidth) / 2,
                                     w: imageWidth,
                                     h: imageWidth)
         
+        let label = UILabel(x: (containingView.frame.size.width - labelWidth) / 2,
+                            y: (containingView.frame.size.height - imageWidth) / 2 + (labelWidth - 45),
+                            w: labelWidth,
+                            h: 30)
+        label.isHidden = true
+        
         self.pokemonImageViews.append(imageView)
+        self.pokemonLabels.append(label)
         self.containingViews.append(containingView)
         
         self.setImageForView(index)
         
         containingView.addSubview(imageView)
+        containingView.addSubview(label)
         self.view.addSubview(containingView)
     }
     
@@ -140,7 +151,19 @@ class PPMyTeamViewController: UIViewController {
             } else {
                 self.pokemonImageViews[i].backgroundColor = pokemon.type1?.color.withAlphaComponent(0.25)
             }
+            
+            let label = self.pokemonLabels[i]
+            
+            label.backgroundColor = Constants.kPPApplicationRedColor
+            label.textColor = UIColor.white
+            label.font = Constants.ketchumFont(ofSize: 18.0)
+            label.textAlignment = .center
+            label.setCornerRadius(radius: 6.0)
+            label.text = pokemon.name?.capitalized
+            label.isHidden = false
+            
         } else {
+            self.pokemonImageViews[i].backgroundColor = UIColor.clear
             self.pokemonImageViews[i].image = UIImage(named: "pokeball")
             self.pokemonImageViews[i].image? = (self.pokemonImageViews[i].image?.withRenderingMode(.alwaysTemplate))!
             self.pokemonImageViews[i].tintColor = UIColor.lightGray
@@ -166,11 +189,12 @@ class PPMyTeamViewController: UIViewController {
         
         let alertView = SCLAlertView()
         
-        alertView.addButton("Yes") { 
+        alertView.addButton("Remove") {
             
             PPRealmHelper.shared.removeTeamPokemon(withIndex: index) {
                 
                 alertView.hideView()
+                self.pokemonLabels[index].isHidden = true
                 
                 switch UIDevice.current.orientation {
                 case .landscapeLeft, .landscapeRight:
@@ -186,10 +210,35 @@ class PPMyTeamViewController: UIViewController {
                 }
             }
         }
-        alertView.addButton("No") { 
-            alertView.hideView()
+        
+        alertView.addButton("Replace") {
+            
+            PPRealmHelper.shared.removeTeamPokemon(withIndex: index) {
+                
+                alertView.hideView()
+                self.pokemonLabels[index].isHidden = true
+                
+                switch UIDevice.current.orientation {
+                case .landscapeLeft, .landscapeRight:
+                    let size = CGSize(width: self.view.size.width,
+                                      height: self.view.size.height - self.navigationBarHeight)
+                    self.setupView(.landscape, withSize: size)
+                    break
+                default:
+                    let size = CGSize(width: self.view.size.width,
+                                      height: self.view.size.height - UIApplication.shared.statusBarFrame.height - self.navigationBarHeight)
+                    self.setupView(.portrait, withSize: size)
+                    break
+                }
+                
+                PPPokemonTeamChooserViewController.presentIn(self, index: index, delegate: self)
+            }
         }
-        alertView.showWarning("Warning", subTitle: "Do you want to remove \(pokemonAtIndex.name!.capitalized) from your team?")
+        
+        
+        alertView.showWarning("Warning",
+            subTitle: "What do you want to do with \(pokemonAtIndex.name!.capitalized)?",
+            closeButtonTitle: "Nothing bye")
     }
 }
 
