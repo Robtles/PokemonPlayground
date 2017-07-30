@@ -87,7 +87,7 @@ class PPMyTeamViewController: UIViewController {
     }
     
     // MARK: - Setup
-    private final func setupView(_ orientation: ScreenOrientation,
+    fileprivate final func setupView(_ orientation: ScreenOrientation,
                            withSize size: CGSize) {
         for i in 0..<6 {
             self.setupConstraints(forView: i,
@@ -97,6 +97,7 @@ class PPMyTeamViewController: UIViewController {
     }
     
     private final func setupConstraints(forView index: Int, orientation: ScreenOrientation, andSize size: CGSize) {
+        
         let containingView = UIView(x: size.width / orientation.x * CGFloat(index % Int(orientation.x)),
                                     y: size.height / orientation.y * CGFloat(index % Int(orientation.y)),
                                     w: size.width / orientation.x,
@@ -123,6 +124,7 @@ class PPMyTeamViewController: UIViewController {
     }
     
     private final func setImageForView(_ i: Int) {
+        
         if let pokemon = self.getTeamPokemonAt(index: i) {
             if pokemon.hasImageData {
                 self.pokemonImageViews[i].image = UIImage(data: (pokemon.imageData)!)
@@ -154,10 +156,11 @@ class PPMyTeamViewController: UIViewController {
     }
     
     @objc private final func showPokemonChooserView(_ sender : UITapGestureRecognizer) {
+        
         let index = (sender.view?.tag)!
         
         guard let pokemonAtIndex = self.getTeamPokemonAt(index: index) else {
-            PPPokemonTeamChooserViewController.presentIn(self)
+            PPPokemonTeamChooserViewController.presentIn(self, index: index, delegate: self)
             return
         }
         
@@ -187,5 +190,28 @@ class PPMyTeamViewController: UIViewController {
             alertView.hideView()
         }
         alertView.showWarning("Warning", subTitle: "Do you want to remove \(pokemonAtIndex.name!.capitalized) from your team?")
+    }
+}
+
+// MARK: - PPPokemonTeamChooserDelegate
+extension PPMyTeamViewController: PPPokemonTeamChooserDelegate {
+    
+    func didChoosePokemon(withIndex index: Int, teamIndex: Int) {
+        
+        PPRealmHelper.shared.addPokemonInTeam(pokemonIndex: index, teamIndex: teamIndex) {
+            
+            switch UIDevice.current.orientation {
+            case .landscapeLeft, .landscapeRight:
+                let size = CGSize(width: self.view.size.width,
+                                  height: self.view.size.height - self.navigationBarHeight)
+                self.setupView(.landscape, withSize: size)
+                break
+            default:
+                let size = CGSize(width: self.view.size.width,
+                                  height: self.view.size.height - UIApplication.shared.statusBarFrame.height - self.navigationBarHeight)
+                self.setupView(.portrait, withSize: size)
+                break
+            }
+        }
     }
 }

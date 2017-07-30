@@ -22,6 +22,10 @@ class PPPokemonTeamChooserViewController: UIViewController {
     @IBOutlet weak var alertCenterYConstraint: NSLayoutConstraint?
     @IBOutlet weak var alertHeight: NSLayoutConstraint?
     
+    var delegate: PPPokemonTeamChooserDelegate?
+    
+    var teamIndex: Int?
+    
     let chosablePokemons = PPRealmHelper.shared.storedPokemons
         .filter({ $0.currentStatusInTeam == -1 })
         .sorted(by: { $0.index < $1.index })
@@ -54,9 +58,12 @@ class PPPokemonTeamChooserViewController: UIViewController {
         self.availablePokemonsTableView?.delegate = self
     }
     
-    static func presentIn(_ viewController: UIViewController) {
-        let pokemonChooserViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "pokemonTeamChooserViewController")
+    static func presentIn(_ viewController: UIViewController, index: Int, delegate: PPPokemonTeamChooserDelegate) {
+        let pokemonChooserViewController = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: "pokemonTeamChooserViewController") as! PPPokemonTeamChooserViewController
         pokemonChooserViewController.modalPresentationStyle = .overCurrentContext
+        pokemonChooserViewController.teamIndex = index
+        pokemonChooserViewController.delegate = delegate
         
         if Thread.isMainThread {
             viewController.present(pokemonChooserViewController, animated: true, completion: nil)
@@ -116,6 +123,21 @@ extension PPPokemonTeamChooserViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 56.0
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let pokemon = self.chosablePokemons[indexPath.row]
+
+        self.delegate?.didChoosePokemon(withIndex: pokemon.index, teamIndex: teamIndex!)
+        
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion:nil)
+        }
+    }
+}
+
+// MARK: - PokemonChooserDelegate
+protocol PPPokemonTeamChooserDelegate {
+    func didChoosePokemon(withIndex index: Int, teamIndex: Int)
 }
 
 // MARK: - UIViewControllerTransitioningDelegate
