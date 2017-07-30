@@ -198,7 +198,7 @@ class PPMyTeamViewController: UIViewController {
         
         let alertView = SCLAlertView()
         
-        alertView.addButton("Remove") {
+        alertView.addButton(Constants.kRemove) {
             
             PPRealmHelper.shared.removeTeamPokemon(withIndex: index) {
                 
@@ -209,7 +209,7 @@ class PPMyTeamViewController: UIViewController {
             }
         }
         
-        alertView.addButton("Replace") {
+        alertView.addButton(Constants.kReplace) {
             
             PPRealmHelper.shared.removeTeamPokemon(withIndex: index) {
                 
@@ -222,9 +222,9 @@ class PPMyTeamViewController: UIViewController {
             }
         }
         
-        alertView.showWarning("Warning",
+        alertView.showWarning(Constants.kTakeCare,
             subTitle: "What do you want to do with \(pokemonAtIndex.name!.capitalized)?",
-            closeButtonTitle: "Nothing bye")
+            closeButtonTitle: Constants.kNothingBye)
     }
 }
 

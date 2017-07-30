@@ -49,6 +49,18 @@ struct Constants {
     /// Empty label
     static let kEmptyLabel = "You didn't download any Pokémon yet!"
     
+    /// Remove
+    static let kRemove = "Remove"
+    
+    /// Replace
+    static let kReplace = "Replace"
+    
+    /// Take Care
+    static let kTakeCare = "Take Care!"
+    
+    /// Nothing Bye
+    static let kNothingBye = "Nothing Bye"
+    
     /*******************
      *
      * COLORS
