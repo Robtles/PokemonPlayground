@@ -12,4 +12,5 @@ target 'PokemonPlayground' do
    pod 'RealmSwift'
    pod 'EZSwiftExtensions'
    pod 'SwiftSpinner'
+   pod 'SCLAlertView'
 end

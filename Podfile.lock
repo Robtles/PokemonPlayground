@@ -15,6 +15,7 @@ PODS:
   - RealmSwift (2.8.3):
     - Realm (= 2.8.3)
   - Result (3.2.3)
+  - SCLAlertView (0.7.0)
   - Spring (1.0.3)
   - SwiftSpinner (1.3.0)
   - SwiftyJSON (3.1.4)
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - ObjectMapper (~> 2.2)
   - RAMPaperSwitch (~> 2.0.4)
   - RealmSwift
+  - SCLAlertView
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - SwiftSpinner
   - SwiftyJSON
@@ -51,10 +53,11 @@ SPEC CHECKSUMS:
   Realm: 3601ef091c8c499a31101d8563b991e75546cdce
   RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftSpinner: c249fffed3e74b5f3e6492dcc05d6bc1525a8220
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: e3e14075c61829cac50061d7d77409299165d136
+PODFILE CHECKSUM: 8a46e9ed7366b8e693c3cba64f958565be27f0df
 
 COCOAPODS: 1.2.1

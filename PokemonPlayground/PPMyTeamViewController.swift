@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 private enum ScreenOrientation {
     case portrait
@@ -100,9 +101,10 @@ class PPMyTeamViewController: UIViewController {
                                     y: size.height / orientation.y * CGFloat(index % Int(orientation.y)),
                                     w: size.width / orientation.x,
                                     h: size.height / orientation.y)
+        containingView.tag = index
         
         containingView.addGestureRecognizer(UITapGestureRecognizer(target: self,
-                                                                   action: #selector(self.showPokemonChooserView)))
+                                                                   action: #selector(self.showPokemonChooserView(_:))))
         
         let imageWidth = containingView.frame.size.height * 0.6
         
@@ -151,7 +153,39 @@ class PPMyTeamViewController: UIViewController {
         return PPPokemon(managedObject: managedPokemon)
     }
     
-    @objc private final func showPokemonChooserView() {
-        PPPokemonTeamChooserViewController.presentIn(self)
+    @objc private final func showPokemonChooserView(_ sender : UITapGestureRecognizer) {
+        let index = (sender.view?.tag)!
+        
+        guard let pokemonAtIndex = self.getTeamPokemonAt(index: index) else {
+            PPPokemonTeamChooserViewController.presentIn(self)
+            return
+        }
+        
+        let alertView = SCLAlertView()
+        
+        alertView.addButton("Yes") { 
+            
+            PPRealmHelper.shared.removeTeamPokemon(withIndex: index) {
+                
+                alertView.hideView()
+                
+                switch UIDevice.current.orientation {
+                case .landscapeLeft, .landscapeRight:
+                    let size = CGSize(width: self.view.size.width,
+                                      height: self.view.size.height - self.navigationBarHeight)
+                    self.setupView(.landscape, withSize: size)
+                    break
+                default:
+                    let size = CGSize(width: self.view.size.width,
+                                      height: self.view.size.height - UIApplication.shared.statusBarFrame.height - self.navigationBarHeight)
+                    self.setupView(.portrait, withSize: size)
+                    break
+                }
+            }
+        }
+        alertView.addButton("No") { 
+            alertView.hideView()
+        }
+        alertView.showWarning("Warning", subTitle: "Do you want to remove \(pokemonAtIndex.name!.capitalized) from your team?")
     }
 }

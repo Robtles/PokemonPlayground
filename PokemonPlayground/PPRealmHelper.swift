@@ -54,14 +54,16 @@ extension PPRealmHelper {
         }
     }
     
-    func removeTeamPokemon(withIndex index: Int) {
+    func removeTeamPokemon(withIndex index: Int, completion: @escaping () -> Void) {
         guard let managedPokemon = PPRealmHelper.shared.storedPokemons.first(where: { $0.currentStatusInTeam == index }) else {
+            completion()
             return
         }
         
         try! PPRealmHelper.shared.realm.write {
             managedPokemon.currentStatusInTeam = -1
         }
+        completion()
     }
     
     func setDataForPokemon(withIndex index: Int, data: Data) {
