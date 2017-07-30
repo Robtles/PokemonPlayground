@@ -35,18 +35,18 @@ private enum ScreenOrientation {
  * So I ended up setting the frames directly (but dynamically though). 
  * Any idea to improve this code would be greatly appreciated.
  */
-open class PPMyTeamViewController: UIViewController {
+class PPMyTeamViewController: UIViewController {
     
     var containingViews: [UIView] = []
     var pokemonImageViews: [UIImageView] = []
     
     // MARK: - Application lifecycle
-    open override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         self.title = Constants.kManageMyTeam
     }
     
-    open override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         switch UIDevice.current.orientation {
@@ -63,7 +63,7 @@ open class PPMyTeamViewController: UIViewController {
         }
     }
     
-    open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
         // Resetting the view
@@ -100,6 +100,9 @@ open class PPMyTeamViewController: UIViewController {
                                     y: size.height / orientation.y * CGFloat(index % Int(orientation.y)),
                                     w: size.width / orientation.x,
                                     h: size.height / orientation.y)
+        
+        containingView.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                                   action: #selector(self.showPokemonChooserView)))
         
         let imageWidth = containingView.frame.size.height * 0.6
         
@@ -146,5 +149,9 @@ open class PPMyTeamViewController: UIViewController {
             return nil
         }
         return PPPokemon(managedObject: managedPokemon)
+    }
+    
+    @objc private final func showPokemonChooserView() {
+        PPPokemonTeamChooserViewController.presentIn(self)
     }
 }

@@ -43,6 +43,8 @@ struct Constants {
     /// ShowMainViewController Segue
     static let kShowMainViewControllerSegue = "showMainViewController"
     
+    /// Choose a Pokémon
+    static let kChooseAPokemon = "Choose a Pokémon!"
     
     /*******************
      *
@@ -73,6 +75,9 @@ struct Constants {
     
     /// Application title bold font
     static let kPPApplicationTitleBoldFont = UIFont.boldSystemFont(ofSize: 16.0)
+    
+    /// Application title font
+    static let kPPApplicationTitleFont = UIFont.systemFont(ofSize: 16.0)
     
     /// Application standard font
     static let kPPApplicationStandardFont = UIFont.systemFont(ofSize: 14.0)

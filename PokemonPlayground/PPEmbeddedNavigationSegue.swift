@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class PPEmbeddedNavigationSegue: UIStoryboardSegue {
+class PPEmbeddedNavigationSegue: UIStoryboardSegue {
 
     var navigationController: UINavigationController?
 
@@ -23,7 +23,7 @@ open class PPEmbeddedNavigationSegue: UIStoryboardSegue {
         self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
-    open override func perform() {
+    override func perform() {
         self.source.present(self.navigationController!, animated: false, completion: nil)
     }
 }

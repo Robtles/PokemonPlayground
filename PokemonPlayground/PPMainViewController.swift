@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class PPMainViewController: UIViewController {
+class PPMainViewController: UIViewController {
 
     @IBOutlet weak var pokeBallImageView: UIImageView?
     @IBOutlet weak var playgroundLabel: UILabel?
@@ -16,7 +16,7 @@ open class PPMainViewController: UIViewController {
     @IBOutlet weak var pokedexButton: UIButton?
     
     // MARK: - Application lifecycle
-    open override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = Constants.kPPApplicationBlueColor
@@ -38,7 +38,7 @@ open class PPMainViewController: UIViewController {
         self.pokedexButton?.backgroundColor = Constants.kPPApplicationBlueButtonColor
     }
 
-    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
         let backItem = UIBarButtonItem()

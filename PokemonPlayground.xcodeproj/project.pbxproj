@@ -10,6 +10,8 @@
 		4D8DC6159BAFBF62196A7A40 /* Pods_PokemonPlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E33E9F62BC88F98513895629 /* Pods_PokemonPlayground.framework */; };
 		D401EBCE1F2B3D0800CCE854 /* PPMyTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D401EBCD1F2B3D0800CCE854 /* PPMyTeamViewController.swift */; };
 		D460914F1F27E7F200DFFE3C /* PPPokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D460914E1F27E7F200DFFE3C /* PPPokemon.swift */; };
+		D47338271F2E119D005D4AEE /* PPPokemonChooserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47338261F2E119D005D4AEE /* PPPokemonChooserTableViewCell.swift */; };
+		D473382B1F2E2620005D4AEE /* PPPokemonTeamChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D473382A1F2E2620005D4AEE /* PPPokemonTeamChooserViewController.swift */; };
 		D4738DE21F23EE1000F26261 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4738DE01F23EE1000F26261 /* Main.storyboard */; };
 		D4738DE71F23EE1000F26261 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4738DE51F23EE1000F26261 /* LaunchScreen.storyboard */; };
 		D4738DF41F23F40500F26261 /* PPAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4738DF31F23F40500F26261 /* PPAppDelegate.swift */; };
@@ -40,6 +42,8 @@
 		AD49C336DAC96904DC41B1E1 /* Pods-PokemonPlayground.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokemonPlayground.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokemonPlayground/Pods-PokemonPlayground.release.xcconfig"; sourceTree = "<group>"; };
 		D401EBCD1F2B3D0800CCE854 /* PPMyTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPMyTeamViewController.swift; sourceTree = "<group>"; };
 		D460914E1F27E7F200DFFE3C /* PPPokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokemon.swift; sourceTree = "<group>"; };
+		D47338261F2E119D005D4AEE /* PPPokemonChooserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokemonChooserTableViewCell.swift; sourceTree = "<group>"; };
+		D473382A1F2E2620005D4AEE /* PPPokemonTeamChooserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PPPokemonTeamChooserViewController.swift; sourceTree = "<group>"; };
 		D4738DD91F23EE1000F26261 /* PokemonPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokemonPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4738DE11F23EE1000F26261 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4738DE61F23EE1000F26261 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -239,7 +243,7 @@
 		D4E991C91F25021200B7741A /* Accessory Views */ = {
 			isa = PBXGroup;
 			children = (
-				D4EC14AF1F2A86260089736F /* Alert Views */,
+				D4EC14AF1F2A86260089736F /* Alert View */,
 				D4C910F71F2875DA008C94FA /* Labels */,
 				D4E991CA1F25023300B7741A /* Navigation Segues */,
 			);
@@ -257,6 +261,7 @@
 		D4E991CD1F25090F00B7741A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D473382A1F2E2620005D4AEE /* PPPokemonTeamChooserViewController.swift */,
 				D495AA601F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift */,
 				D4E991C71F25001C00B7741A /* PPMainViewController.swift */,
 				D4E991D61F254A9700B7741A /* PPPokedexTableViewController.swift */,
@@ -287,17 +292,18 @@
 			children = (
 				D4E991DB1F25504400B7741A /* PPUnknownPokemonTableViewCell.swift */,
 				D4C910F51F286C5E008C94FA /* PPPokedexTableViewCell.swift */,
+				D47338261F2E119D005D4AEE /* PPPokemonChooserTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		D4EC14AF1F2A86260089736F /* Alert Views */ = {
+		D4EC14AF1F2A86260089736F /* Alert View */ = {
 			isa = PBXGroup;
 			children = (
 				D4EC14B01F2A86390089736F /* PPAlertView.swift */,
 				D4EC14B21F2A86460089736F /* PPAlertView.xib */,
 			);
-			name = "Alert Views";
+			name = "Alert View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,6 +441,7 @@
 				D4C910FC1F2878E9008C94FA /* UIColor+Extension.swift in Sources */,
 				D401EBCE1F2B3D0800CCE854 /* PPMyTeamViewController.swift in Sources */,
 				D4E991DC1F25504400B7741A /* PPUnknownPokemonTableViewCell.swift in Sources */,
+				D473382B1F2E2620005D4AEE /* PPPokemonTeamChooserViewController.swift in Sources */,
 				D495AA611F23F8D2005AF48A /* PPAnimatedLaunchViewController.swift in Sources */,
 				D4E991CC1F25035300B7741A /* PPEmbeddedNavigationSegue.swift in Sources */,
 				D4EC14B11F2A86390089736F /* PPAlertView.swift in Sources */,
@@ -443,6 +450,7 @@
 				D4C911051F29E482008C94FA /* PPManagedPokemon.swift in Sources */,
 				D4BDE62E1F2DD8CC00134CFB /* PPRealmHelper.swift in Sources */,
 				D4E991D71F254A9700B7741A /* PPPokedexTableViewController.swift in Sources */,
+				D47338271F2E119D005D4AEE /* PPPokemonChooserTableViewCell.swift in Sources */,
 				D4E96C711F269D6C00D1029F /* PPPokemonProvider.swift in Sources */,
 				D4C9110C1F2A1CD8008C94FA /* PPPokemon+Persistable.swift in Sources */,
 				D4738DF41F23F40500F26261 /* PPAppDelegate.swift in Sources */,

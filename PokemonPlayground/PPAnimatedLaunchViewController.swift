@@ -9,7 +9,7 @@
 import UIKit
 import Spring
 
-open class PPAnimatedLaunchViewController: UIViewController {
+class PPAnimatedLaunchViewController: UIViewController {
     // Views
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bottomView: UIView!
@@ -19,7 +19,7 @@ open class PPAnimatedLaunchViewController: UIViewController {
     @IBOutlet weak var bottomViewConstraint: NSLayoutConstraint!
     
     // MARK: - Application lifecycle
-    open override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         self.topView.backgroundColor = Constants.kPPApplicationRedColor
@@ -27,12 +27,12 @@ open class PPAnimatedLaunchViewController: UIViewController {
         self.view.backgroundColor = Constants.kPPApplicationBlueColor
     }
     
-    open override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.animateViews()
     }
     
-    open override var prefersStatusBarHidden: Bool {
+    override var prefersStatusBarHidden: Bool {
         return true
     }
     

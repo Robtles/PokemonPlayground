@@ -226,6 +226,164 @@
             </objects>
             <point key="canvasLocation" x="1852" y="-158.77061469265368"/>
         </scene>
+        <!--Pokemon Team Chooser View Controller-->
+        <scene sceneID="20b-UG-keE">
+            <objects>
+                <viewController storyboardIdentifier="pokemonTeamChooserViewController" id="Rbn-Em-d8w" customClass="PPPokemonTeamChooserViewController" customModule="PokemonPlayground" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fp0-Z1-gEs"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hcq-Hb-bSL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LqD-aX-mq4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fy-17-Tcy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Izf-EP-Lla" appends="YES" id="DWI-hD-yQg"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCj-Nd-SRA">
+                                <rect key="frame" x="16" y="66.5" width="343" height="534"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaP-ZG-Q1e">
+                                        <rect key="frame" x="0.0" y="12" width="343" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="0Vb-OX-RYe">
+                                        <rect key="frame" x="0.0" y="45" width="343" height="473"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pokemonChooserCell" rowHeight="56" id="hcs-q6-h9K" customClass="PPPokemonChooserTableViewCell" customModule="PokemonPlayground" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="1" width="343" height="56"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hcs-q6-h9K" id="Jby-Mi-UeS">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="55.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeball" translatesAutoresizingMaskIntoConstraints="NO" id="bsK-4R-zPY">
+                                                            <rect key="frame" x="8" y="4" width="47" height="47.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="bsK-4R-zPY" secondAttribute="height" multiplier="1:1" id="t8J-vp-dfZ"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                                                                    <integer key="value" value="24"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="483-CI-0vK">
+                                                            <rect key="frame" x="286" y="12.5" width="51" height="31"/>
+                                                        </switch>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLA-GW-4hc">
+                                                            <rect key="frame" x="67" y="28" width="217" height="0.0"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="bsK-4R-zPY" firstAttribute="top" secondItem="Jby-Mi-UeS" secondAttribute="top" constant="4" id="0Mz-xX-thX"/>
+                                                        <constraint firstItem="483-CI-0vK" firstAttribute="leading" secondItem="aLA-GW-4hc" secondAttribute="trailing" constant="2" id="2Vp-gn-phl"/>
+                                                        <constraint firstItem="bsK-4R-zPY" firstAttribute="leading" secondItem="Jby-Mi-UeS" secondAttribute="leading" constant="8" id="8gw-eA-Hqx"/>
+                                                        <constraint firstItem="aLA-GW-4hc" firstAttribute="centerY" secondItem="Jby-Mi-UeS" secondAttribute="centerY" id="8uz-dI-K0R"/>
+                                                        <constraint firstAttribute="bottom" secondItem="bsK-4R-zPY" secondAttribute="bottom" constant="4" id="OHi-EH-c1F"/>
+                                                        <constraint firstItem="aLA-GW-4hc" firstAttribute="leading" secondItem="bsK-4R-zPY" secondAttribute="trailing" constant="12" id="kiw-fg-7MU"/>
+                                                        <constraint firstItem="483-CI-0vK" firstAttribute="centerY" secondItem="Jby-Mi-UeS" secondAttribute="centerY" id="pAh-uO-gdF"/>
+                                                        <constraint firstAttribute="trailing" secondItem="483-CI-0vK" secondAttribute="trailing" constant="8" id="tBG-R9-a3M"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="cellSwitch" destination="483-CI-0vK" id="Bt6-Lu-y9d"/>
+                                                    <outlet property="labelView" destination="aLA-GW-4hc" id="OU6-Am-c6j"/>
+                                                    <outlet property="pokeBallImageView" destination="bsK-4R-zPY" id="hAX-VN-qQK"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIS-xs-5mY">
+                                        <rect key="frame" x="305" y="-15" width="30" height="30"/>
+                                        <color key="backgroundColor" red="0.87450980389999999" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="fyK-fi-sfE"/>
+                                            <constraint firstAttribute="width" secondItem="NIS-xs-5mY" secondAttribute="height" multiplier="1:1" id="y2c-kt-5ok"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="X">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="tapToDismiss:" destination="Rbn-Em-d8w" eventType="touchUpInside" id="EKC-sx-dWx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.95461041397518587" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="0Vb-OX-RYe" secondAttribute="trailing" id="3hl-z1-gcW"/>
+                                    <constraint firstAttribute="top" secondItem="NIS-xs-5mY" secondAttribute="top" constant="15" id="FkP-Eg-CZd"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Vb-OX-RYe" secondAttribute="bottom" constant="16" id="G4k-pK-qhx"/>
+                                    <constraint firstAttribute="trailing" secondItem="KaP-ZG-Q1e" secondAttribute="trailing" id="IyR-XU-xyU"/>
+                                    <constraint firstItem="0Vb-OX-RYe" firstAttribute="leading" secondItem="tCj-Nd-SRA" secondAttribute="leading" id="JGZ-rH-paN"/>
+                                    <constraint firstItem="KaP-ZG-Q1e" firstAttribute="top" secondItem="tCj-Nd-SRA" secondAttribute="top" constant="12" id="bmk-dQ-qMH"/>
+                                    <constraint firstItem="KaP-ZG-Q1e" firstAttribute="leading" secondItem="tCj-Nd-SRA" secondAttribute="leading" id="u5D-A1-upN"/>
+                                    <constraint firstAttribute="trailing" secondItem="NIS-xs-5mY" secondAttribute="trailing" constant="8" id="xWb-k6-fmA"/>
+                                    <constraint firstItem="0Vb-OX-RYe" firstAttribute="top" secondItem="KaP-ZG-Q1e" secondAttribute="bottom" constant="12" id="xYC-Ij-f5w"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="q3e-C5-gyS" appends="YES" id="pG6-QH-pyP"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hcq-Hb-bSL" firstAttribute="top" secondItem="7fy-17-Tcy" secondAttribute="bottom" id="2cS-9T-8SI"/>
+                            <constraint firstItem="7fy-17-Tcy" firstAttribute="leading" secondItem="LqD-aX-mq4" secondAttribute="leading" id="5U0-Js-0wR"/>
+                            <constraint firstItem="tCj-Nd-SRA" firstAttribute="leading" secondItem="LqD-aX-mq4" secondAttribute="leading" constant="16" id="DaU-SF-RqL"/>
+                            <constraint firstItem="7fy-17-Tcy" firstAttribute="top" secondItem="fp0-Z1-gEs" secondAttribute="bottom" constant="-20" id="TI1-4R-bRM"/>
+                            <constraint firstAttribute="trailing" secondItem="tCj-Nd-SRA" secondAttribute="trailing" constant="16" id="Vdc-ae-dik"/>
+                            <constraint firstItem="tCj-Nd-SRA" firstAttribute="height" secondItem="LqD-aX-mq4" secondAttribute="height" multiplier="8:10" id="dB4-6v-Zi8"/>
+                            <constraint firstItem="tCj-Nd-SRA" firstAttribute="centerY" secondItem="LqD-aX-mq4" secondAttribute="centerY" id="hbM-cH-io0"/>
+                            <constraint firstAttribute="trailing" secondItem="7fy-17-Tcy" secondAttribute="trailing" id="pqC-Pe-bcM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alertCenterYConstraint" destination="hbM-cH-io0" id="7vY-MU-gfy"/>
+                        <outlet property="alertHeight" destination="dB4-6v-Zi8" id="s58-Af-05a"/>
+                        <outlet property="alertView" destination="tCj-Nd-SRA" id="Z1E-f0-uwd"/>
+                        <outlet property="availablePokemonsTableView" destination="0Vb-OX-RYe" id="TXZ-pP-VKG"/>
+                        <outlet property="chooseAPokemonLabel" destination="KaP-ZG-Q1e" id="SvI-Pt-8uw"/>
+                        <outlet property="overlayView" destination="7fy-17-Tcy" id="nwo-Ix-HPR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eRq-GY-Qdj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Izf-EP-Lla">
+                    <connections>
+                        <action selector="tapToDismiss:" destination="Rbn-Em-d8w" id="uf0-Ow-9WL"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="q3e-C5-gyS">
+                    <connections>
+                        <action selector="alertMoving:" destination="Rbn-Em-d8w" id="NaA-8P-LgY"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2726" y="-159"/>
+        </scene>
         <!--Pokedex Table View Controller-->
         <scene sceneID="zTo-JD-pku">
             <objects>

@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class PPAlertViewController: UIViewController, UIViewControllerTransitioningDelegate {
+class PPAlertViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
     @IBOutlet weak var overlayView: UIView?
     @IBOutlet weak var alertView: UIView?
@@ -38,7 +38,7 @@ open class PPAlertViewController: UIViewController, UIViewControllerTransitionin
     }
     
     // MARK: - Application lifecycle
-    open override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let pokemon = self.pokemon else {
@@ -80,8 +80,8 @@ open class PPAlertViewController: UIViewController, UIViewControllerTransitionin
         self.pokemonImageView?.backgroundColor = type2.color.withAlphaComponent(0.25)
         self.secondTypeLabel?.isHidden = false
         self.secondTypeLabel?.type = type2
-        self.firstTypeConstraint?.constant -= 40
-        self.secondTypeConstraint?.constant += 40
+        self.firstTypeConstraint?.constant += 40
+        self.secondTypeConstraint?.constant -= 40
     }
 
     static func presentIn(_ viewController: UIViewController, withPokemon pokemon: PPPokemon) {
