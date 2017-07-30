@@ -235,7 +235,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pokedexPokemonCell" rowHeight="60" id="bsi-Tt-cee" customClass="PPPokedexTableViewCell" customModule="PokemonPlayground" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="pokedexPokemonCell" rowHeight="60" id="bsi-Tt-cee" customClass="PPPokedexTableViewCell" customModule="PokemonPlayground" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bsi-Tt-cee" id="Pu4-Jx-5L3">
@@ -356,7 +356,7 @@
                                     <outlet property="weightLabel" destination="m7x-ag-bjU" id="zWV-Wo-4fQ"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="unknownPokemonCell" rowHeight="60" id="Npk-s1-L48" customClass="PPUnknownPokemonTableViewCell" customModule="PokemonPlayground" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="unknownPokemonCell" rowHeight="60" id="Npk-s1-L48" customClass="PPUnknownPokemonTableViewCell" customModule="PokemonPlayground" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="88" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Npk-s1-L48" id="JBD-tg-Kar">

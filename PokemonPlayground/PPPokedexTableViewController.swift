@@ -28,7 +28,7 @@ class PPPokedexTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let managedPokemon = RealmHelper.shared.storedPokemons.first(where: { $0.index == indexPath.row + 1 }) else {
+        guard let managedPokemon = PPRealmHelper.shared.storedPokemons.first(where: { $0.index == indexPath.row + 1 }) else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "unknownPokemonCell") as! PPUnknownPokemonTableViewCell
             cell.numberLabel?.text = "#\(indexPath.row + 1) "
             return cell
@@ -43,55 +43,64 @@ class PPPokedexTableViewController: UITableViewController {
         return 60.0
     }
     
+    // MARK: - Table view delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         
         // If the Pokemon of the tapped cell is unknown, launch download
         if tableView.cellForRow(at: indexPath) is PPUnknownPokemonTableViewCell {
-            var request: Cancellable? = nil
-            var showError: Bool = true
             
-            // Loading animation with cancellable request
-            SwiftSpinner.show("\(Constants.kDownloadingDataForPokemon)\(indexPath.row + 1)...")
-                        .addTapHandler({
-                            SwiftSpinner.hide({
-                                showError = false
-                                request?.cancel()
-                            })
-            }, subtitle: Constants.kTapToCancel)
-            
-            // Download request
-            request = self.pokemonProvider.request(.pokemon(index: indexPath.row + 1)) { [unowned self] (result) in
-                switch result {
-                case let .success(moyaResponse):
-                    // Success: parse data, map into a Pokemon and reload the cell
-                    let data = moyaResponse.data
-                    let json = JSON(data: data)
-                    var newPokemon = PPPokemon(JSON: json.dictionaryObject!)
-                    newPokemon?.index = indexPath.row + 1
-                    
-                    guard newPokemon != nil && RealmHelper.shared.addNewPokemon(newPokemon, updating: false) else {
-                        // If no Pokemon or could not add to Realm: fallthrough to failure case
-                        fallthrough
-                    }
-                    
-                    SwiftSpinner.hide()
-                    self.tableView.reloadRows(at: [indexPath], with: .none)
-                case .failure(_):
-                    // Failure: show an error if it doesn't come from a user cancel
-                    if showError {
-                        SwiftSpinner.show(duration: 1.0, title: Constants.kDataLoadingError, animated: false)
-                            .addTapHandler({
-                                SwiftSpinner.hide()
-                        })
-                    }
-                }
-            }
+            self.loadNewPokemon(withIndex: (indexPath.row + 1))
         } else if tableView.cellForRow(at: indexPath) is PPPokedexTableViewCell {
-            guard let pokemon = RealmHelper.shared.storedPokemons.first(where: { $0.index == indexPath.row + 1 }) else {
+            
+            guard let pokemon = PPRealmHelper.shared.storedPokemons.first(where: { $0.index == indexPath.row + 1 }) else {
                 return
             }
             PPAlertViewController.presentIn(self, withPokemon: PPPokemon(managedObject: pokemon))
+        }
+    }
+    
+    // MARK: - Helpers
+    private func loadNewPokemon(withIndex index: Int) {
+        
+        var request: Cancellable? = nil
+        var showError: Bool = true
+        
+        // Loading animation with cancellable request
+        SwiftSpinner.show("\(Constants.kDownloadingDataForPokemon)\(index)...")
+            .addTapHandler({
+                SwiftSpinner.hide({
+                    showError = false
+                    request?.cancel()
+                })
+            }, subtitle: Constants.kTapToCancel)
+        
+        // Download request
+        request = self.pokemonProvider.request(.pokemon(index: index)) { [unowned self] (result) in
+            switch result {
+            case let .success(moyaResponse):
+                // Success: parse data, map into a Pokemon and reload the cell
+                let data = moyaResponse.data
+                let json = JSON(data: data)
+                var newPokemon = PPPokemon(JSON: json.dictionaryObject!)
+                newPokemon?.index = index
+                
+                guard newPokemon != nil && PPRealmHelper.shared.addNewPokemon(newPokemon, updating: false) else {
+                    // If no Pokemon or could not add to Realm: fallthrough to failure case
+                    fallthrough
+                }
+                
+                SwiftSpinner.hide()
+                self.tableView.reloadRows(at: [IndexPath(row: index - 1, section: 0)], with: .none)
+            case .failure(_):
+                // Failure: show an error if it doesn't come from a user cancel
+                if showError {
+                    SwiftSpinner.show(duration: 1.0, title: Constants.kDataLoadingError, animated: false)
+                        .addTapHandler({
+                            SwiftSpinner.hide()
+                        })
+                }
+            }
         }
     }
 }

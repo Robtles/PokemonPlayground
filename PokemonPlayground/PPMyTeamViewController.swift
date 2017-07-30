@@ -142,7 +142,7 @@ open class PPMyTeamViewController: UIViewController {
     
     // MARK: - Helper
     private final func getTeamPokemonAt(index: Int) -> PPPokemon? {
-        guard let managedPokemon = RealmHelper.shared.storedPokemons.first(where: { $0.currentStatusInTeam == index }) else {
+        guard let managedPokemon = PPRealmHelper.shared.storedPokemons.first(where: { $0.currentStatusInTeam == index }) else {
             return nil
         }
         return PPPokemon(managedObject: managedPokemon)

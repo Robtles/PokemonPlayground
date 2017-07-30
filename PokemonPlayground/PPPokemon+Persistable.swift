@@ -8,7 +8,7 @@
 
 import Kingfisher
 
-extension PPPokemon: Persistable {
+extension PPPokemon: PPPersistable {
     // Init model from Realm object
     init(managedObject: PPManagedPokemon) {
         self.index = managedObject.index

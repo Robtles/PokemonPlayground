@@ -60,11 +60,13 @@ open class PPAlertViewController: UIViewController, UIViewControllerTransitionin
         if (self.pokemon?.hasImageData)! {
             self.pokemonImageView?.image = UIImage(data: (pokemon.imageData)!)
         } else {
+            let index = (self.pokemon?.index)!
             self.pokemonImageView?.kf.indicatorType = .activity
             self.pokemonImageView?.kf.setImage(with: URL(string: (pokemon.imageURL)!),
-                                               completionHandler: { [weak self] (image, _, _, _) in
+                                               completionHandler: { (image, _, _, _) in
                                                 if image != nil {
-                                                    self?.pokemon?.imageData = UIImagePNGRepresentation(image!)
+                                                    PPRealmHelper.shared.setDataForPokemon(withIndex: index,
+                                                                                         data: UIImagePNGRepresentation(image!)!)
                                                 }
             })
         }
