@@ -46,6 +46,9 @@ struct Constants {
     /// Choose a Pokémon
     static let kChooseAPokemon = "Choose a Pokémon!"
     
+    /// Empty label
+    static let kEmptyLabel = "You didn't download any Pokémon yet!"
+    
     /*******************
      *
      * COLORS

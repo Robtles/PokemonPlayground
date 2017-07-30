@@ -14,6 +14,11 @@ class PPPokemonTeamChooserViewController: UIViewController {
     @IBOutlet weak var alertView: UIView?
     @IBOutlet weak var chooseAPokemonLabel: UILabel?
     @IBOutlet weak var availablePokemonsTableView: UITableView?
+    
+    @IBOutlet weak var emptyView: UIView?
+    @IBOutlet weak var pokeballImageView: UIImageView?
+    @IBOutlet weak var emptyLabel: UILabel?
+    
     @IBOutlet weak var alertCenterYConstraint: NSLayoutConstraint?
     @IBOutlet weak var alertHeight: NSLayoutConstraint?
     
@@ -27,11 +32,26 @@ class PPPokemonTeamChooserViewController: UIViewController {
         
         self.chooseAPokemonLabel?.font = Constants.kPPApplicationButtonFont
         self.chooseAPokemonLabel?.text = Constants.kChooseAPokemon
+        self.transitioningDelegate = self
         
+        guard chosablePokemons.count > 0 else {
+            self.availablePokemonsTableView?.isHidden = true
+            
+            self.emptyView?.isHidden = false
+            self.emptyLabel?.text = Constants.kEmptyLabel
+            self.emptyLabel?.font = Constants.kPPApplicationStandardFont
+            self.emptyLabel?.textColor = UIColor.lightGray
+            
+            self.pokeballImageView?.image? = (self.pokeballImageView?.image?.withRenderingMode(.alwaysTemplate))!
+            self.pokeballImageView?.tintColor = UIColor.lightGray
+            
+            return
+        }
+        
+        self.emptyView?.isHidden = true
+        self.availablePokemonsTableView?.isHidden = false
         self.availablePokemonsTableView?.dataSource = self
         self.availablePokemonsTableView?.delegate = self
-        
-        self.transitioningDelegate = self
     }
     
     static func presentIn(_ viewController: UIViewController) {
@@ -96,7 +116,6 @@ extension PPPokemonTeamChooserViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 56.0
     }
-    
 }
 
 // MARK: - UIViewControllerTransitioningDelegate
