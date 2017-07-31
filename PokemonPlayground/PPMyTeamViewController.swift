@@ -196,9 +196,18 @@ class PPMyTeamViewController: UIViewController {
             return
         }
         
-        let alertView = SCLAlertView()
+        let appearance: SCLAlertView.SCLAppearance = SCLAlertView.SCLAppearance(kDefaultShadowOpacity: 0.5,
+                                                    kTitleFont: Constants.kPPApplicationButtonFont,
+                                                    kTextFont: Constants.kPPApplicationTitleFont,
+                                                    kButtonFont: Constants.kPPApplicationTitleFont,
+                                                    hideWhenBackgroundViewIsTapped: true)
         
-        alertView.addButton(Constants.kRemove) {
+        let alertView = SCLAlertView(appearance: appearance)
+        alertView.iconTintColor = UIColor.white
+        
+        alertView.addButton(Constants.kRemove,
+                            backgroundColor: Constants.kPPApplicationRedColor,
+                            textColor: UIColor.white) {
             
             PPRealmHelper.shared.removeTeamPokemon(withIndex: index) {
                 
@@ -209,7 +218,9 @@ class PPMyTeamViewController: UIViewController {
             }
         }
         
-        alertView.addButton(Constants.kReplace) {
+        alertView.addButton(Constants.kReplace,
+                            backgroundColor: Constants.kPPApplicationRedColor,
+                            textColor: UIColor.white) {
             
             PPRealmHelper.shared.removeTeamPokemon(withIndex: index) {
                 
@@ -223,8 +234,10 @@ class PPMyTeamViewController: UIViewController {
         }
         
         alertView.showWarning(Constants.kTakeCare,
-            subTitle: "What do you want to do with \(pokemonAtIndex.name!.capitalized)?",
-            closeButtonTitle: Constants.kNothingBye)
+                              subTitle: "What do you want to do with \(pokemonAtIndex.name!.capitalized)?",
+                              closeButtonTitle: Constants.kNothingBye,
+                              colorStyle: 0xDF1A1A,
+                              colorTextButton: 0xFFFFFF)
     }
 }
 
