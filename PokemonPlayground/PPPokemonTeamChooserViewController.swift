@@ -28,13 +28,18 @@ class PPPokemonTeamChooserViewController: PPOverlayedModalViewController {
         .filter({ $0.currentStatusInTeam == -1 })
         .sorted(by: { $0.index < $1.index })
 
+    // MARK: - Initializer
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.transitioningDelegate = self
+    }
+    
     // MARK: - Application lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.chooseAPokemonLabel?.font = Constants.kPPApplicationButtonFont
         self.chooseAPokemonLabel?.text = Constants.kChooseAPokemon
-        self.transitioningDelegate = self
         
         guard chosablePokemons.count > 0 else {
             self.availablePokemonsTableView?.isHidden = true
